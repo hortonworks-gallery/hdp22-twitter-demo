@@ -85,22 +85,22 @@ oauth.accessTokenSecret=
 ps -ef | grep kafka
 
 #if not, start kafka
-nohup /opt/kafka/latest/bin/kafka-server-start.sh /opt/kafka/latest/config/server.properties &
+nohup /usr/hdp/2.2.0.0-2041/kafka/bin/kafka-server-start.sh /usr/hdp/2.2.0.0-2041/kafka/config/server.properties &
 
 #create topic
-/opt/kafka/latest/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic test
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic test
 
 #list topic
-/opt/kafka/latest/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
 
 #start a producer and enter text on few lines
-/opt/kafka/latest/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:9092 --topic test
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:9092 --topic test
 
 #start a consumer in a new terminal your text appears in the consumer
-/opt/kafka/latest/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
 
 #delete topic
-/opt/kafka/latest/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
 ```
 
 #####  Run Twitter demo
