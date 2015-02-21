@@ -20,7 +20,7 @@ public class TestProducer {
 	private static int MAX_NUM_TWITTER_HASHTAG = 400;
 	
 	//Location of CSV file from where to read stocks
-	private static String CSV_LOCATION = "/root/hdp21-twitter-demo/fetchSecuritiesList/securities.csv";
+	private static String CSV_LOCATION = "/root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv";
 	
 	//Delimitor used in CSV file
 	private static String FILE_DELIMITOR = ",";
