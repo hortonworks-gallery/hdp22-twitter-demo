@@ -1,0 +1,402 @@
+#PakvsWI,MTV Stars,Entertainment,Entertainment,Hollywood CA,0000000001,40
+$HDP,Hortonworks,Technology,Technology,Santa Clara CA,0000000001,5
+$MMM,3M Company,Industrials,Industrial Conglomerates,St. Paul Minnesota,0000066740,5
+$ABT,Abbott Laboratories,Health Care,Health Care Equipment & Services,North Chicago Illinois,0000001800,5
+$ABBV,AbbVie,Health Care,Pharmaceuticals,North Chicago Illinois,0001551152,5
+$ACE,ACE Limited,Financials,Property & Casualty Insurance,Zurich Switzerland,0000896159,5
+$ACN,Accenture plc,Information Technology,IT Consulting & Services,Dublin Ireland,0001467373,5
+$ACT,Actavis plc,Health Care,Pharmaceuticals,Dublin Ireland,0000884629,5
+$ADBE,Adobe Systems Inc,Information Technology,Application Software,San Jose California,0000796343,5
+$ADT,ADT Corp,Industrials,Diversified Commercial Services,Boca Raton Florida,0001546640,5
+$AES,AES Corp,Utilities,Electric Utilities,Arlington Virginia,0000874761,5
+$AET,Aetna Inc,Health Care,Managed Health Care,Hartford Connecticut,0001122304,5
+$AFL,AFLAC Inc,Financials,Life & Health Insurance,Columbus Georgia,0000004977,5
+$AMG,Affiliated Managers Group Inc,Financials,Asset Management & Custody Banks,Beverly Massachusetts,0001004434,5
+$A,Agilent Technologies Inc,Health Care,Health Care Equipment & Services,Santa Clara California,0001090872,5
+$GAS,AGL Resources Inc.,Utilities,Gas Utilities,Atlanta Georgia,0001004155,5
+$APD,Air Products & Chemicals Inc,Materials,Industrial Gases,Allentown Pennsylvania,0000002969,5
+$ARG,Airgas Inc,Materials,Industrial Gases,Radnor Pennsylvania,0000804212,5
+$AKAM,Akamai Technologies Inc,Information Technology,Internet Software & Services,Cambridge Massachusetts,0001086222,5
+$AA,Alcoa Inc,Materials,Aluminum,New York New York,0000004281,5
+$ALXN,Alexion Pharmaceuticals,Health Care,Biotechnology,Cheshire Connecticut,0000899866,5
+$ATI,Allegheny Technologies Inc,Materials,Diversified Metals & Mining,Pittsburgh Pennsylvania,0001018963,5
+$ALLE,Allegion,Industrials,Building Products,Dublin Ireland,0001579241,5
+$AGN,Allergan Inc,Health Care,Pharmaceuticals,Irvine California,0000850693,5
+$ADS,Alliance Data Systems,Information Technology,Data Processing & Outsourced Services,Plano Texas,0001101215,5
+$ALL,Allstate Corp,Financials,Property & Casualty Insurance,Northfield Township Illinois,0000899051,5
+$ALTR,Altera Corp,Information Technology,Semiconductors,San Jose California,0000768251,5
+$MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond Virginia,0000764180,5
+$AMZN,Amazon.com Inc,Consumer Discretionary,Internet Retail,Seattle Washington,0001018724,5
+$AEE,Ameren Corp,Utilities,Multi-Utilities & Unregulated Power,St. Louis Missouri,0001002910,5
+$AEP,American Electric Power,Utilities,Electric Utilities,Columbus Ohio,0000004904,5
+$AXP,American Express Co,Financials,Consumer Finance,New York New York,0000004962,5
+$AIG,American International Group Inc.,Financials,Property & Casualty Insurance,New York New York,0000005272,5
+$AMT,American Tower Corp A,Financials,REITs,Boston Massachusetts,0001053507,5
+$AMP,Ameriprise Financial,Financials,Diversified Financial Services,Minneapolis Minnesota,0000820027,5
+$ABC,AmerisourceBergen Corp,Health Care,Health Care Distribution & Services,Chesterbrook Pennsylvania,0001140859,5
+$AME,Ametek,Industrials,Electrical Components and Equipment,Berwyn Pennsylvania,0001037868,5
+$AMGN,Amgen Inc,Health Care,Biotechnology,Thousand Oaks California,0000318154,5
+$APH,Amphenol Corp A,Industrials,Electrical Components & Equipment,Wallingford Connecticut,0000820313,5
+$APC,Anadarko Petroleum Corp,Energy,Oil & Gas Exploration & Production,The Woodlands Texas,0000773910,5
+$ADI,Analog Devices Inc.,Information Technology,Semiconductors,Norwood Massachusetts,0000006281,5
+$AON,Aon plc,Financials,Insurance Brokers,London,0000315293,5
+$APA,Apache Corporation,Energy,Oil & Gas Exploration & Production,Houston Texas,0000006769,5
+$AIV,Apartment Investment & Mgmt,Financials,REITs,Denver Colorado,0000922864,5
+$AAPL,Apple Inc.,Information Technology,Computer Hardware,Cupertino California,0000320193,5
+$AMAT,Applied Materials Inc,Information Technology,Semiconductor Equipment,Santa Clara California,0000006951,5
+$ADM,Archer-Daniels-Midland Co,Consumer Staples,Agricultural Products,Decatur Illinois,0000007084,5
+$AIZ,Assurant Inc,Financials,Multi-line Insurance,New York New York,0001267238,5
+$T,AT&T Inc,Telecommunications Services,Integrated Telecommunications Services,Dallas Texas,0000732717,5
+$ADSK,Autodesk Inc,Information Technology,Application Software,San Rafael California,0000769397,5
+$ADP,Automatic Data Processing,Information Technology,Internet Software & Services,Roseland New Jersey,0000008670,5
+$AN,AutoNation Inc,Consumer Discretionary,Specialty Stores,Fort Lauderdale Florida,0000350698,5
+$AZO,AutoZone Inc,Consumer Discretionary,Specialty Stores,Memphis Tennessee,0000866787,5
+$AVGO,Avago Technologies,Information Technology,Semiconductors,San Jose California,0001441634,5
+$AVB,AvalonBay Communities Inc.,Financials,REITs,Arlington Virginia,0000915912,5
+$AVY,Avery Dennison Corp,Materials,Paper Packaging,Glendale California,0000008818,5
+$AVP,Avon Products,Consumer Staples,Personal Products,New York New York,0000008868,5
+$BHI,Baker Hughes Inc,Energy,Oil & Gas Equipment & Services,Houston Texas,0000808362,5
+$BLL,Ball Corp,Materials,Metal & Glass Containers,Broomfield Colorado,0000009389,5
+$BAC,Bank of America Corp,Financials,Banks,Charlotte North Carolina,0000070858,5
+$BK,The Bank of New York Mellon Corp.,Financials,Banks,New York New York,0001390777,5
+$BCR,Bard (C.R.) Inc.,Health Care,Health Care Equipment & Services,Murray Hill New Jersey,0000009892,5
+$BAX,Baxter International Inc.,Health Care,Health Care Equipment & Services,Deerfield Illinois,0000010456,5
+$BBT,BB&T Corporation,Financials,Banks,Winston-Salem North Carolina,0000092230,5
+$BDX,Becton Dickinson,Health Care,Health Care Equipment & Services,Franklin Lakes New Jersey,0000010795,5
+$BBBY,Bed Bath & Beyond,Consumer Discretionary,Specialty Stores,Union New Jersey,0000886158,5
+$BRK.B,Berkshire Hathaway,Financials,Multi-Sector Holdings,Omaha Nebraska,0001067983,5
+$BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,Richfield Minnesota,0000764478,5
+$BIIB,BIOGEN IDEC Inc.,Health Care,Biotechnology,Weston Massachusetts,0000875045,5
+$BLK,BlackRock,Financials,Diversified Financial Services,New York New York,0001364742,5
+$HRB,Block H&R,Financials,Consumer Finance,Kansas City Missouri,0000012659,5
+$BA,Boeing Company,Industrials,Aerospace & Defense,Chicago Illinois,0000012927,5
+$BWA,BorgWarner,Consumer Discretionary,Auto Parts & Equipment,Auburn Hills Michigan,0000908255,5
+$BXP,Boston Properties,Financials,REITs,Boston Massachusetts,0001037540,5
+$BSX,Boston Scientific,Health Care,Health Care Equipment & Services,Marlborough Massachusetts,0000885725,5
+$BMY,Bristol-Myers Squibb,Health Care,Health Care Distributors & Services,New York New York,0000014272,5
+$BRCM,Broadcom Corporation,Information Technology,Semiconductors,Irvine California,0001054374,5
+$BF.B,Brown-Forman Corporation,Consumer Staples,Distillers & Vintners,Louisville Kentucky,0000014693,5
+$CHRW,C. H. Robinson Worldwide,Industrials,Air Freight & Logistics,Eden Prairie Minnesota,0001043277,5
+$CA,CA Inc.,Information Technology,Systems Software,Islandia New York,0000356028,5
+$CVC,Cablevision Systems Corp.,Consumer Discretionary,Broadcasting & Cable TV,Bethpage New York,0001053112,5
+$COG,Cabot Oil & Gas,Energy,Oil & Gas Exploration & Production,Houston Texas,0000858470,5
+$CAM,Cameron International Corp.,Energy,Oil & Gas Equipment & Services,Houston Texas,0000941548,5
+$CPB,Campbell Soup,Consumer Staples,Packaged Foods & Meats,Camden New Jersey,0000016732,5
+$COF,Capital One Financial,Financials,Consumer Finance,Tysons Corner Virginia,0000927628,5
+$CAH,Cardinal Health Inc.,Health Care,Health Care Distributors & Services,Dublin Ohio,0000721371,5
+$CFN,Carefusion,Health Care,Health Care Equipment & Services,San Diego California,0001457543,5
+$KMX,Carmax Inc,Consumer Discretionary,Specialty Stores,Richmond Virginia,0001170010,5
+$CCL,Carnival Corp.,Consumer Discretionary,Hotels Resorts & Cruise Lines,Miami Florida,0000815097,5
+$CAT,Caterpillar Inc.,Industrials,Construction & Farm Machinery & Heavy Trucks,Peoria Illinois,0000018230,5
+$CBG,CBRE Group,Financials,Real Estate Management & Development,Los Angeles California,0001138118,5
+$CBS,CBS Corp.,Consumer Discretionary,Broadcasting & Cable TV,New York New York,0000813828,5
+$CELG,Celgene Corp.,Health Care,Biotechnology,Summit New Jersey,0000816284,5
+$CNP,CenterPoint Energy,Utilities,Multi-Utilities & Unregulated Power,Houston Texas,0001130310,5
+$CTL,CenturyLink Inc,Telecommunications Services,Integrated Telecommunications Services,Monroe Louisiana,0000018926,5
+$CERN,Cerner,Health Care,Health Care Distributors & Services,North Kansas City Missouri,0000804753,5
+$CF,CF Industries Holdings Inc,Materials,Fertilizers & Agricultural Chemicals,Deerfield Illinois,0001324404,5
+$SCHW,Charles Schwab Corporation,Financials,Diversified Financial Services,San Francisco California,0000316709,5
+$CHK,Chesapeake Energy,Energy,Integrated Oil & Gas,Oklahoma City Oklahoma,0000895126,5
+$CVX,Chevron Corp.,Energy,Integrated Oil & Gas,San Ramon California,0000093410,5
+$CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,Denver Colorado,0001058090,5
+$CB,Chubb Corp.,Financials,Property & Casualty Insurance,Warren New Jersey,0000020171,5
+$CI,CIGNA Corp.,Health Care,Managed Health Care,Philadelphia Pennsylvania,0000701221,5
+$XEC,Cimarex Energy,Energy,Oil & Gas Exploration & Production,Denver Colorado,0001168054,5
+$CINF,Cincinnati Financial,Financials,Property & Casualty Insurance,Fairfield Ohio,0000020286,5
+$CTAS,Cintas Corporation,Industrials,Diversified Commercial Services,Mason Ohio,0000723254,5
+$CSCO,Cisco Systems,Information Technology,Networking Equipment,San Jose California,0000858877,5
+$C,Citigroup Inc.,Financials,Banks,New York New York,0000831001,5
+$CTXS,Citrix Systems,Information Technology,Internet Software & Services,Fort Lauderdale Florida,0000877890,5
+$CLX,The Clorox Company,Consumer Staples,Household Products,Oakland California,0000021076,5
+$CME,CME Group Inc.,Financials,Diversified Financial Services,Chicago Illinois,0001156375,5
+$CMS,CMS Energy,Utilities,Multi-Utilities & Unregulated Power,Jackson Michigan,0000811156,5
+$COH,Coach Inc.,Consumer Discretionary,Apparel Accessories & Luxury Goods,New York New York,0001116132,5
+$KO,The Coca Cola Company,Consumer Staples,Soft Drinks,Atlanta Georgia,0000021344,5
+$CCE,Coca-Cola Enterprises,Consumer Staples,Soft Drinks,Atlanta Georgia,0001491675,5
+$CTSH,Cognizant Technology Solutions,Information Technology,IT Consulting & Services,Teaneck New Jersey,0001058290,5
+$CL,Colgate-Palmolive,Consumer Staples,Household Products,New York New York,0000021665,5
+$CMCSA,Comcast Corp.,Consumer Discretionary,Broadcasting & Cable TV,Philadelphia Pennsylvania,0001166691,5
+$CMA,Comerica Inc.,Financials,Banks,Dallas Texas,0000028412,5
+$CSC,Computer Sciences Corp.,Information Technology,IT Consulting & Services,Falls Church Virginia,0000023082,5
+$CAG,ConAgra Foods Inc.,Consumer Staples,Packaged Foods & Meats,Omaha Nebraska,0000023217,5
+$COP,ConocoPhillips,Energy,Oil & Gas Exploration & Production,Houston Texas,0001163165,5
+$CNX,CONSOL Energy Inc.,Energy,Coal & Consumable Fuels,Cecil Township Pennsylvania,0001070412,5
+$ED,Consolidated Edison,Utilities,Multi-Utilities & Unregulated Power,New York New York,0001047862,5
+$STZ,Constellation Brands,Consumer Staples,Distillers & Vintners,Victor New York,0000016918,5
+$GLW,Corning Inc.,Industrials,Construction & Engineering,Corning New York,0000024741,5
+$COST,Costco Co.,Consumer Staples,Hypermarkets & Super Centers,Issaquah Washington,0000909832,5
+$CCI,Crown Castle International Corp.,Financials,REITs,Houston Texas,0001051470,5
+$CSX,CSX Corp.,Industrials,Railroads,Jacksonville Florida,0000277948,5
+$CMI,Cummins Inc.,Industrials,Industrial Machinery,Columbus Indiana,0000026172,5
+$CVS,CVS Caremark Corp.,Consumer Staples,Drug Retail,Woonsocket Rhode Island,0000064803,5
+$DHI,D. R. Horton,Consumer Discretionary,Construction,Fort Worth Texas,0000882184,5
+$DHR,Danaher Corp.,Industrials,Industrial Machinery,Washington D.C,0000313616,5
+$DRI,Darden Restaurants,Consumer Discretionary,Restaurants,Orlando Florida,0000940944,5
+$DVA,DaVita Inc.,Health Care,Health Care Facilities,Denver Colorado,0000927066,5
+$DE,Deere & Co.,Industrials,Construction & Farm Machinery & Heavy Trucks,Moline Illinois,0000315189,5
+$DLPH,Delphi Automotive,Consumer Discretionary,Auto Parts & Equipment,Gillingham Kent,0001521332,5
+$DAL,Delta Air Lines,Industrials,Airlines,Atlanta Georgia,0000027904,5
+$DNR,Denbury Resources Inc.,Energy,Oil & Gas Exploration & Production,Plano Texas,0000945764,5
+$XRAY,Dentsply International,Health Care,Health Care Supplies,York Pennsylvania,0000818479,5
+$DVN,Devon Energy Corp.,Energy,Oil & Gas Exploration & Production,Oklahoma City Oklahoma,0001090012,5
+$DO,Diamond Offshore Drilling,Energy,Oil & Gas Drilling,Houston Texas,0000949039,5
+$DTV,DirecTV,Consumer Discretionary,Broadcasting & Cable TV,El Segundo California,0001465112,5
+$DFS,Discover Financial Services,Financials,Consumer Finance,Riverwoods Illinois,0001393612,5
+$DISCA,Discovery Communications-A,Consumer Discretionary,Broadcasting & Cable TV,Silver Spring Maryland,0001437107,5
+$DISCK,Discovery Communications-C,Consumer Discretionary,Broadcasting & Cable TV,Silver Spring Maryland,0001437107,5
+$DG,Dollar General,Consumer Discretionary,General Merchandise Stores,Goodlettsville Tennessee,0000029534,5
+$DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,Chesapeake Virginia,0000935703,5
+$D,Dominion Resources,Utilities,Multi-Utilities & Unregulated Power,Richmond Virginia,0000715957,5
+$DOV,Dover Corp.,Industrials,Industrial Machinery,Downers Grove Illinois,0000029905,5
+$DOW,Dow Chemical,Materials,Diversified Chemicals,Midland Michigan,0000029915,5
+$DPS,Dr Pepper Snapple Group,Consumer Staples,Soft Drinks,Plano Texas,0001418135,5
+$DTE,DTE Energy Co.,Utilities,Multi-Utilities & Unregulated Power,Detroit Michigan,0000936340,5
+$DD,Du Pont (E.I.),Materials,Diversified Chemicals,Wilmington Delaware,0000030554,5
+$DUK,Duke Energy,Utilities,Electric Utilities,Charlotte North Carolina,0001326160,5
+$DNB,Dun & Bradstreet,Industrials,Data Processing Services,Short Hills New Jersey,0001115222,5
+$ETFC,E-Trade,Financials,Diversified Financial Services,New York New York,0001015780,5
+$EMN,Eastman Chemical,Materials,Diversified Chemicals,Kingsport Tennessee,0000915389,5
+$ETN,Eaton Corporation,Industrials,Industrial Conglomerates,Dublin Ireland,0001551182,5
+$EBAY,eBay Inc.,Information Technology,Internet Software & Services,San Jose California,0001065088,5
+$ECL,Ecolab Inc.,Materials,Specialty Chemicals,St. Paul Minnesota,0000031462,5
+$EIX,Edison Int'l,Utilities,Multi-Utilities & Unregulated Power,Rosemead California,0000827052,5
+$EW,Edwards Lifesciences,Health Care,Health Care Equipment & Services,Irvine California,0001099800,5
+$EA,Electronic Arts,Information Technology,Application Software,Redwood City California,0000712515,5
+$EMC,EMC Corp.,Information Technology,IT Consulting & Services,Hopkinton Massachusetts,0000790070,5
+$EMR,Emerson Electric,Industrials,Industrial Conglomerates,Ferguson Missouri,0000032604,5
+$ENDP,Endo International,Health Care,Pharmaceuticals,Dublin Ireland,0001100962,5
+$ESV,Ensco plc,Energy,Oil & Gas Drilling,London United Kingdom,0000314808,5
+$ETR,Entergy Corp.,Utilities,Electric Utilities,New Orleans Louisiana,0000065984,5
+$EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,Houston Texas,0000821189,5
+$EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,Pittsburgh Pennsylvania,0000033213,5
+$EFX,Equifax Inc.,Financials,Diversified Financial Services,Atlanta Georgia,0000033185,5
+$EQR,Equity Residential,Financials,REITs,Chicago Illinois,0000906107,5
+$ESS,Essex Property Trust Inc,Financials,Residential REITs,Palo Alto California,0000920522,5
+$EL,Estee Lauder Cos.,Consumer Staples,Personal Products,New York New York,0001001250,5
+$ES,Eversource Energy,Utilities,Multi-Utilities & Unregulated Power,Springfield Massachusetts,0000072741,5
+$EXC,Exelon Corp.,Utilities,Multi-Utilities & Unregulated Power,Chicago Illinois,0001109357,5
+$EXPE,Expedia Inc.,Consumer Discretionary,Hotels Resorts & Cruise Lines,Bellevue Washington,0001324424,5
+$EXPD,Expeditors Int'l,Industrials,Air Freight & Logistics,Seattle Washington,0000746515,5
+$ESRX,Express Scripts,Health Care,Health Care Distributors & Services,Cool Valley Missouri,0001532063,5
+$XOM,Exxon Mobil Corp.,Energy,Integrated Oil & Gas,Irving Texas,0000034088,5
+$FFIV,F5 Networks,Information Technology,Networking Equipment,Seattle Washington,0001048695,5
+$FB,Facebook,Information Technology,Internet Software & Services,Menlo Park California,0001326801,5
+$FDO,Family Dollar Stores,Consumer Discretionary,General Merchandise Stores,Matthews North Carolina,0000034408,5
+$FAST,Fastenal Co,Industrials,Building Products,Winona Minnesota,0000815556,5
+$FDX,FedEx Corporation,Industrials,Air Freight & Logistics,Memphis Tennessee,0001048911,5
+$FIS,Fidelity National Information Services,Information Technology,Internet Software & Services,Jacksonville Florida,0001136893,5
+$FITB,Fifth Third Bancorp,Financials,Banks,Cincinnati Ohio,0000035527,5
+$FSLR,First Solar Inc,Information Technology,Semiconductors,Tempe Arizona,0001274494,5
+$FE,FirstEnergy Corp,Utilities,Multi-Utilities & Unregulated Power,Akron Ohio,0001031296,5
+$FISV,Fiserv Inc,Information Technology,Internet Software & Services,Brookfield Wisconsin,0000798354,5
+$FLIR,FLIR Systems,Industrials,Aerospace & Defense,Wilsonville Oregon,0000354908,5
+$FLS,Flowserve Corporation,Industrials,Industrial Machinery,Irving Texas,0000030625,5
+$FLR,Fluor Corp.,Industrials,Diversified Commercial Services,Irving Texas,0001124198,5
+$FMC,FMC Corporation,Materials,Diversified Chemicals,Philadelphia Pennsylvania,0000037785,5
+$FTI,FMC Technologies Inc.,Energy,Oil & Gas Equipment & Services,Houston Texas,0001135152,5
+$F,Ford Motor,Consumer Discretionary,Automobile Manufacturers,Dearborn Michigan,0000037996,5
+$FOSL,Fossil Inc.,Consumer Discretionary,Apparel Accessories & Luxury Goods,Richardson Texas,0000883569,5
+$BEN,Franklin Resources,Financials,Diversified Financial Services,San Mateo California,0000038777,5
+$FCX,Freeport-McMoran Cp & Gld,Materials,Diversified Metals & Mining,Phoenix Arizona,0000831259,5
+$FTR,Frontier Communications,Telecommunications Services,Integrated Telecommunications Services,Stamford Connecticut,0000020520,5
+$GME,GameStop Corp.,Consumer Discretionary,Specialty Stores,Grapevine Texas,0001326380,5
+$GCI,Gannett Co.,Consumer Discretionary,Publishing,McLean Virginia,0000039899,5
+$GPS,Gap (The),Consumer Discretionary,Apparel Retail,San Francisco California,0000039911,5
+$GRMN,Garmin Ltd.,Consumer Discretionary,Consumer Electronics,Schaffhausen Switzerland,0001121788,5
+$GD,General Dynamics,Industrials,Aerospace & Defense,Falls Church Virginia,0000040533,5
+$GE,General Electric,Industrials,Industrial Conglomerates,Fairfield Connecticut,0000040545,5
+$GGP,General Growth Properties Inc.,Financials,REITs,Chicago Illinois,0000895648,5
+$GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley Minnesota,0000040704,5
+$GM,General Motors,Consumer Discretionary,Automobile Manufacturers,Detroit Michigan,0001467858,5
+$GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,Atlanta Georgia,0000040987,5
+$GNW,Genworth Financial Inc.,Financials,Life & Health Insurance,Richmond Virginia,0001276520,5
+$GILD,Gilead Sciences,Health Care,Biotechnology,Foster City California,0000882095,5
+$GS,Goldman Sachs Group,Financials,Diversified Financial Services,New York New York,0000886982,5
+$GT,Goodyear Tire & Rubber,Consumer Discretionary,Tires & Rubber,Akron Ohio,0000042582,5
+$GOOGL,Google Inc Class A,Information Technology,Internet Software & Services,Mountain View California,0001288776,5
+$GOOG,Google Inc Class C,Information Technology,Internet Software & Services,Mountain View California,0001288776,5
+$GWW,Grainger (W.W.) Inc.,Industrials,Industrial Materials,Lake Forest Illinois,0000277135,5
+$HAL,Halliburton Co.,Energy,Oil & Gas Equipment & Services,Houston Texas,0000045012,5
+$HOG,Harley-Davidson,Consumer Discretionary,Motorcycle Manufacturers,Milwaukee Wisconsin,0000793952,5
+$HAR,Harman Int'l Industries,Consumer Discretionary,Consumer Electronics,Stamford Connecticut,0000800459,5
+$HRS,Harris Corporation,Information Technology,Telecommunications Equipment,Melbourne Florida,0000202058,5
+$HIG,Hartford Financial Svc.Gp.,Financials,Property & Casualty Insurance,Hartford Connecticut,0000874766,5
+$HAS,Hasbro Inc.,Consumer Discretionary,Leisure Products,Pawtucket Rhode Island,0000046080,5
+$HCA,HCA Holdings,Health Care,Health Care Facilities,Nashville Tennessee,0000860730,5
+$HCP,HCP Inc.,Financials,REITs,Long Beach California,0000765880,5
+$HCN,Health Care REIT Inc.,Financials,REITs,Toledo Ohio,0000766704,5
+$HP,Helmerich & Payne,Energy,Oil & Gas Drilling,Tulsa Oklahoma,0000046765,5
+$HES,Hess Corporation,Energy,Integrated Oil & Gas,New York New York,0000004447,5
+$HPQ,Hewlett-Packard,Information Technology,Computer Hardware,Palo Alto California,0000047217,5
+$HD,Home Depot,Consumer Discretionary,Home Improvement Retail,Cobb County Georgia,0000354950,5
+$HON,Honeywell Int'l Inc.,Industrials,Industrial Conglomerates,Morristown New Jersey,0000773840,5
+$HRL,Hormel Foods Corp.,Consumer Staples,Packaged Foods & Meats,Austin Minnesota,0000048465,5
+$HSP,Hospira Inc.,Health Care,Health Care Equipment & Services,Lake Forest Illinois,0001274057,5
+$HST,Host Hotels & Resorts,Financials,REITs,Bethesda Maryland,0001070750,5
+$HCBK,Hudson City Bancorp,Financials,Banks,Paramus New Jersey,0000921847,5
+$HUM,Humana Inc.,Health Care,Managed Health Care,Louisville Kentucky,0000049071,5
+$HBAN,Huntington Bancshares,Financials,Banks,Columbus Ohio,0000049196,5
+$ITW,Illinois Tool Works,Industrials,Industrial Machinery,Glenview Illinois,0000049826,5
+$IR,Ingersoll-Rand PLC,Industrials,Industrial Conglomerates,Dublin Ireland,0001466258,5
+$TEG,Integrys Energy Group Inc.,Utilities,Gas Utilities,Chicago Illinois,0000916863,5
+$INTC,Intel Corp.,Information Technology,Semiconductors,Santa Clara California,0000050863,5
+$ICE,Intercontinental Exchange,Financials,Diversified Financial Services,Atlanta Georgia,0001571949,5
+$IBM,International Bus. Machines,Information Technology,IT Consulting & Services,Armonk New York,0000051143,5
+$IP,International Paper,Materials,Paper Products,Memphis Tennessee,0000051434,5
+$IPG,Interpublic Group,Consumer Discretionary,Advertising,New York New York,0000051644,5
+$IFF,Intl Flavors & Fragrances,Materials,Specialty Chemicals,New York New York,0000051253,5
+$INTU,Intuit Inc.,Information Technology,Internet Software & Services,Mountain View California,0000896878,5
+$ISRG,Intuitive Surgical Inc.,Health Care,Health Care Equipment & Services,Sunnyvale California,0001035267,5
+$IVZ,Invesco Ltd.,Financials,Diversified Financial Services,Atlanta Georgia,0000914208,5
+$IRM,Iron Mountain Incorporated,Industrials,Data Processing Services,Boston Massachusetts,0001020569,5
+$JEC,Jacobs Engineering Group,Industrials,Industrial Conglomerates,Pasadena California,0000052988,5
+$JNJ,Johnson & Johnson,Health Care,Health Care Equipment & Services,New Brunswick New Jersey,0000200406,5
+$JCI,Johnson Controls,Consumer Discretionary,Auto Parts & Equipment,Milwaukee Wisconsin,0000053669,5
+$JOY,Joy Global Inc.,Industrials,Industrial Machinery,Milwaukee Wisconsin,0000801898,5
+$JPM,JPMorgan Chase & Co.,Financials,Banks,New York New York,0000019617,5
+$JNPR,Juniper Networks,Information Technology,Networking Equipment,Sunnyvale California,0001043604,5
+$KSU,Kansas City Southern,Industrials,Railroads,Kansas City Missouri,0000054480,5
+$K,Kellogg Co.,Consumer Staples,Packaged Foods & Meats,Battle Creek Michigan,0000055067,5
+$KEY,KeyCorp,Financials,Banks,Cleveland Ohio,0000091576,5
+$GMCR,Keurig Green Mountain,Consumer Staples,Packaged Foods & Meats,Waterbury Vermont,0000909954,5
+$KMB,Kimberly-Clark,Consumer Staples,Household Products,Irving Texas,0000055785,5
+$KIM,Kimco Realty,Financials,REITs,New Hyde Park New York,0000879101,5
+$KMI,Kinder Morgan,Energy,Oil & Gas Refining & Marketing & Transportation,Houston Texas,0001506307,5
+$KLAC,KLA-Tencor Corp.,Information Technology,Semiconductor Equipment,Milpitas California,0000319201,5
+$KSS,Kohl's Corp.,Consumer Discretionary,General Merchandise Stores,Menomonee Falls Wisconsin,0000885639,5
+$KRFT,Kraft Foods Group,Consumer Staples,Packaged Foods & Meats,Northfield Illinois,0001545158,5
+$KR,Kroger Co.,Consumer Staples,Food Retail,Cincinnati Ohio,0000056873,5
+$LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,Columbus Ohio,0000701985,5
+$LLL,L-3 Communications Holdings,Industrials,Industrial Conglomerates,New York New York,0001056239,5
+$LH,Laboratory Corp. of America Holding,Health Care,Health Care Facilities,Burlington North Carolina,0000920148,5
+$LRCX,Lam Research,Information Technology,Semiconductor Equipment,Fremont California,0000707549,5
+$LM,Legg Mason,Financials,Diversified Financial Services,Baltimore Maryland,0000704051,5
+$LEG,Leggett & Platt,Industrials,Industrial Conglomerates,Carthage Missouri,0000058492,5
+$LEN,Lennar Corp.,Consumer Discretionary,Homebuilding,Miami Florida,0000920760,5
+$LVLT,Level 3 Communications,Telecommunications Services,Alternative Carriers,Broomfield Colorado,0000794323,5
+$LUK,Leucadia National Corp.,Financials,Multi-Sector Holdings,New York New York,0000096223,5
+$LLY,Lilly (Eli) & Co.,Health Care,Pharmaceuticals,Indianapolis Indiana,0000059478,5
+$LNC,Lincoln National,Financials,Multi-line Insurance,Radnor Pennsylvania,0000059558,5
+$LLTC,Linear Technology Corp.,Information Technology,Semiconductors,Milpitas California,0000791907,5
+$LMT,Lockheed Martin Corp.,Industrials,Aerospace & Defense,Bethesda Maryland,0000936468,5
+$L,Loews Corp.,Financials,Multi-Sector Holdings,New York New York,0000060086,5
+$LO,Lorillard Inc.,Consumer Staples,Tobacco,Greensboro North Carolina,0001424847,5
+$LOW,Lowe's Cos.,Consumer Discretionary,Home Improvement Retail,Mooresville North Carolina,0000060667,5
+$LYB,LyondellBasell,Materials,Diversified Chemicals,Rotterdam Netherlands,0001489393,5
+$MTB,M&T Bank Corp.,Financials,Banks,Buffalo New York,0000036270,5
+$MAC,Macerich,Financials,Retail REITs,Santa Monica California,0000912242,5
+$M,Macy's Inc.,Consumer Discretionary,Department Stores,Cincinnati Ohio,0000794367,5
+$MNK,Mallinckrodt Plc,Health Care,Pharmaceuticals,Dublin Ireland,0001567892,5
+$MRO,Marathon Oil Corp.,Energy,Oil & Gas Exploration & Production,Houston Texas,0000101778,5
+$MPC,Marathon Petroleum,Energy,Oil & Gas Refining & Marketing & Transportation,Findlay Ohio,0001510295,5
+$MAR,Marriott Int'l.,Consumer Discretionary,Hotels Resorts & Cruise Lines,Bethesda Maryland,0001048286,5
+$MMC,Marsh & McLennan,Financials,Insurance Brokers,New York New York,0000062709,5
+$MAS,Masco Corp.,Industrials,Building Products,Taylor Michigan,0000062996,5
+$MA,Mastercard Inc.,Information Technology,Internet Software & Services,Harrison New York,0001141391,5
+$MAT,Mattel Inc.,Consumer Discretionary,Leisure Products,El Segundo California,0000063276,5
+$MKC,McCormick & Co.,Consumer Staples,Packaged Foods & Meats,Sparks Maryland,0000063754,5
+$MCD,McDonald's Corp.,Consumer Discretionary,Restaurants,Oak Brook Illinois,0000063908,5
+$MHFI,McGraw Hill Financial,Financials,Diversified Financial Services,New York New York,0000064040,5
+$MCK,McKesson Corp.,Health Care,Health Care Distributors & Services,San Francisco California,0000927653,5
+$MJN,Mead Johnson,Consumer Staples,Packaged Foods & Meats,Glenview Illinois,0001452575,5
+$MWV,MeadWestvaco Corporation,Materials,Paper Packaging,Richmond Virginia,0001159297,5
+$MDT,Medtronic Inc.,Health Care,Health Care Equipment & Services,Fridley Minnesota,0000064670,5
+$MRK,Merck & Co.,Health Care,Pharmaceuticals,Whitehouse Station New Jersey,0000310158,5
+$MET,MetLife Inc.,Financials,Life & Health Insurance,New York New York,0001099219,5
+$KORS,Michael Kors Holdings,Consumer Discretionary,Apparel Accessories & Luxury Goods,New York New York,0001530721,5
+$MCHP,Microchip Technology,Information Technology,Semiconductors,Chandler Arizona,0000827054,5
+$MU,Micron Technology,Information Technology,Semiconductors,Boise Idaho,0000723125,5
+$MSFT,Microsoft Corp.,Information Technology,Systems Software,Redmond Washington,0000789019,5
+$MHK,Mohawk Industries,Consumer Discretionary,Home Furnishings,Amsterdam New York,0000851968,5
+$TAP,Molson Coors Brewing Company,Consumer Staples,Brewers,Denver Colorado,0000024545,5
+$MDLZ,Mondelez International,Consumer Staples,Packaged Foods & Meats,Northfield Illinois,0001103982,5
+$MON,Monsanto Co.,Materials,Fertilizers & Agricultural Chemicals,Creve Coeur Missouri,0001110783,5
+$MNST,Monster Beverage,Consumer Staples,Soft Drinks,Corona California,0000865752,5
+$MCO,Moody's Corp,Financials,Diversified Financial Services,New York New York,0001059556,5
+$MS,Morgan Stanley,Financials,Diversified Financial Services,New York New York,0000895421,5
+$MOS,The Mosaic Company,Materials,Fertilizers & Agricultural Chemicals,Plymouth Minnesota,0001285785,5
+$MSI,Motorola Solutions Inc.,Information Technology,Telecommunications Equipment,Schaumburg Illinois,0000068505,5
+$MUR,Murphy Oil,Energy,Integrated Oil & Gas,El Dorado Arkansas,0000717423,5
+$MYL,Mylan Inc.,Health Care,Pharmaceuticals,Canonsburg Pennsylvania,0000069499,5
+$NBR,Nabors Industries Ltd.,Energy,Oil & Gas Drilling,Hamilton Bermuda,0001163739,5
+$NDAQ,NASDAQ OMX Group,Financials,Diversified Financial Services,New York New York,0001120193,5
+$NOV,National Oilwell Varco Inc.,Energy,Oil & Gas Equipment & Services,Houston Texas,0001021860,5
+$NAVI,Navient,Financials,Consumer Finance,Newark Delaware,0001084750,5
+$NTAP,NetApp,Information Technology,Internet Software & Services,Sunnyvale California,0001002047,5
+$NFLX,Netflix Inc.,Information Technology,Internet Software & Services,Los Gatos California,0001065280,5
+$NWL,Newell Rubbermaid Co.,Consumer Discretionary,Housewares & Specialties,Sandy Springs Georgia,0000814453,5
+$NFX,Newfield Exploration Co,Energy,Oil & Gas Exploration & Production,Houston Texas,0000912750,5
+$NEM,Newmont Mining Corp. (Hldg. Co.),Materials,Gold,Denver Colorado,0001164727,5
+$NWSA,News Corporation,Consumer Discretionary,Publishing,New York New York,0001564708,5
+$NEE,NextEra Energy,Utilities,Multi-Utilities & Unregulated Power,Juno Beach Florida,0000753308,5
+$NLSN,Nielsen Holdings,Industrials,Research & Consulting Services,New York New York,0001492633,5
+$NKE,Nike,Consumer Discretionary,Apparel Accessories & Luxury Goods,Washington County Oregon,0000320187,5
+$NI,NiSource Inc.,Utilities,Multi-Utilities & Unregulated Power,Merrillville Indiana,0001111711,5
+$NE,Noble Corp,Energy,Oil & Gas Drilling,Geneva Switzerland,0001458891,5
+$NBL,Noble Energy Inc,Energy,Oil & Gas Exploration & Production,Houston Texas,0000072207,5
+$JWN,Nordstrom,Consumer Discretionary,Department Stores,Seattle Washington,0000072333,5
+$NSC,Norfolk Southern Corp.,Industrials,Railroads,Norfolk Virginia,0000702165,5
+$NTRS,Northern Trust Corp.,Financials,Diversified Financial Services,Chicago Illinois,0000073124,5
+$NOC,Northrop Grumman Corp.,Industrials,Aerospace & Defense,West Falls Church Virginia,0001133421,5
+$NRG,NRG Energy,Utilities,Multi-Utilities & Unregulated Power,Princeton New Jersey,0001013871,5
+$NUE,Nucor Corp.,Materials,Steel,Charlotte North Carolina,0000073309,5
+$NVDA,Nvidia Corporation,Information Technology,Semiconductors,Santa Clara California,0001045810,5
+$ORLY,O'Reilly Automotive,Consumer Discretionary,Specialty Stores,Springfield Missouri,0000898173,5
+$OXY,Occidental Petroleum,Energy,Oil & Gas Exploration & Production,Los Angeles California,0000797468,5
+$OMC,Omnicom Group,Consumer Discretionary,Advertising,New York New York,0000029989,5
+$OKE,ONEOK,Energy,Oil & Gas Exploration & Production,Tulsa Oklahoma,0001039684,5
+$ORCL,Oracle Corp.,Information Technology,Application Software,Redwood Shores California,0001341439,5
+$OI,Owens-Illinois Inc,Materials,Metal & Glass Containers,Perrysburg Ohio,0000812074,5
+$PCG,P G & E Corp.,Utilities,Multi-Utilities & Unregulated Power,San Francisco California,0001004980,5
+$PCAR,PACCAR Inc.,Industrials,Construction & Farm Machinery & Heavy Trucks,Bellevue Washington,0000075362,5
+$PLL,Pall Corp.,Industrials,Industrial Conglomerates,Port Washington New York,0000075829,5
+$PH,Parker-Hannifin,Industrials,Industrial Conglomerates,Cleveland Ohio,0000076334,5
+$PDCO,Patterson Companies,Health Care,Health Care Supplies,St. Paul Minnesota,0000891024,5
+$PAYX,Paychex Inc.,Information Technology,Internet Software & Services,Penfield New York,0000723531,5
+$PNR,Pentair Ltd.,Industrials,Industrial Conglomerates,Schaffhausen Switzerland,0000077360,5
+$PBCT,People's United Bank,Financials,Banks,Bridgeport Connecticut,0001378946,5
+$POM,Pepco Holdings Inc.,Utilities,Multi-Utilities & Unregulated Power,Washington D.C,0001135971,5
+$PEP,PepsiCo Inc.,Consumer Staples,Soft Drinks,Purchase New York,0000077476,5
+$PKI,PerkinElmer,Health Care,Health Care Equipment & Services,Waltham Massachusetts,0000031791,5
+$PRGO,Perrigo,Health Care,Pharmaceuticals,Dublin Ireland,0001585364,5
+$PETM,PetSmart Inc.,Consumer Discretionary,Specialty Stores,Phoenix Arizona,0000863157,5
+$PFE,Pfizer Inc.,Health Care,Pharmaceuticals,New York New York,0000078003,5
+$PM,Philip Morris International,Consumer Staples,Tobacco,New York New York,0001413329,5
+$PSX,Phillips 66,Energy,Oil & Gas Refining & Marketing & Transportation,Houston Texas,0001534701,5
+$PNW,Pinnacle West Capital,Utilities,Multi-Utilities & Unregulated Power,Phoenix Arizona,0000764622,5
+$PXD,Pioneer Natural Resources,Energy,Oil & Gas Exploration & Production,Irving Texas,0001038357,5
+$PBI,Pitney-Bowes,Industrials,Office Services & Supplies,Stamford Connecticut,0000078814,5
+$PCL,Plum Creek Timber Co.,Financials,REITs,Seattle Washington,0000849213,5
+$PNC,PNC Financial Services,Financials,Banks,Pittsburgh Pennsylvania,0000713676,5
+$RL,Polo Ralph Lauren Corp.,Consumer Discretionary,Apparel Accessories & Luxury Goods,New York New York,0001037038,5
+$PPG,PPG Industries,Materials,Diversified Chemicals,Pittsburgh Pennsylvania,0000079879,5
+$PPL,PPL Corp.,Utilities,Multi-Utilities & Unregulated Power,Allentown Pennsylvania,0000922224,5
+$PX,Praxair Inc.,Materials,Industrial Gases,Danbury Connecticut,0000884905,5
+$PCP,Precision Castparts,Industrials,Industrial Conglomerates,Portland Oregon,0000079958,5
+$PCLN,Priceline.com Inc,Consumer Discretionary,Hotels Resorts & Cruise Lines,Norwalk Connecticut,0001075531,5
+$PFG,Principal Financial Group,Financials,Diversified Financial Services,Des Moines Iowa,0001126328,5
+$PG,Procter & Gamble,Consumer Staples,Personal Products,Cincinnati Ohio,0000080424,5
+$PGR,Progressive Corp.,Financials,Property & Casualty Insurance,Mayfield Village Ohio,0000080661,5
+$PLD,Prologis,Financials,Diversified Financial Services,San Francisco California,0001045609,5
+$PRU,Prudential Financial,Financials,Diversified Financial Services,Newark New Jersey,0001137774,5
+$PEG,Public Serv. Enterprise Inc.,Utilities,Multi-Utilities & Unregulated Power,Newark New Jersey,0000788784,5
+$PSA,Public Storage,Financials,REITs,Glendale California,0001393311,5
+$PHM,Pulte Homes Inc.,Consumer Discretionary,Homebuilding,Atlanta Georgia,0000822416,5
+$PVH,PVH Corp.,Consumer Discretionary,Apparel Accessories & Luxury Goods,New York New York,0000078239,5
+$QEP,QEP Resources,Energy,Oil & Gas Exploration & Production,Denver Colorado,0001108827,5
+$PWR,Quanta Services Inc.,Industrials,Industrial Conglomerates,Houston Texas,0001050915,5
+$QCOM,QUALCOMM Inc.,Information Technology,Semiconductors,San Diego California,0000804328,5
+$DGX,Quest Diagnostics,Health Care,Health Care Facilities,Madison New Jersey,0001022079,5
+$RRC,Range Resources Corp.,Energy,Oil & Gas Exploration & Production,Fort Worth Texas,0000315852,5
+$RTN,Raytheon Co.,Industrials,Aerospace & Defense,Waltham Massachusetts,0001047122,5
+$RHT,Red Hat Inc.,Information Technology,Systems Software,Raleigh North Carolina,0001087423,5
+$REGN,Regeneron,Health Care,Biotechnology,Tarrytown New York,0000872589,5
+$RF,Regions Financial Corp.,Financials,Diversified Financial Services,Birmingham Alabama,0001281761,5
+$RSG,Republic Services Inc,Industrials,Industrial Conglomerates,Phoenix Arizona,0001060391,5
+$RAI,Reynolds American Inc.,Consumer Staples,Tobacco,Winston-Salem North Carolina,0001275283,5
+$RHI,Robert Half International,Industrials,Industrial Conglomerates,Menlo Park California,0000315213,5
+$ROK,Rockwell Automation Inc.,Industrials,Industrial Conglomerates,Milwaukee Wisconsin,0001024478,5
+$COL,Rockwell Collins,Industrials,Industrial Conglomerates,Cedar Rapids Iowa,0001137411,5
+$ROP,Roper Industries,Industrials,Industrial Conglomerates,Sarasota Florida,0000882835,5
+$ROST,Ross Stores,Consumer Discretionary,Apparel Retail,Pleasanton California,0000745732,5
+$RCL,Royal Caribbean Cruises Ltd,Consumer Discretionary,Hotel Resorts and Cruise Lines,Miami Florida,0000884887,5
