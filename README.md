@@ -94,7 +94,7 @@ nohup /usr/hdp/2.2.0.0-2041/kafka/bin/kafka-server-start.sh /usr/hdp/2.2.0.0-204
 /usr/hdp/2.2.0.0-2041/kafka/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
 
 #start a producer and enter text on few lines
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:9092 --topic test
+/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:6667 --topic test
 
 #start a consumer in a new terminal your text appears in the consumer
 /usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
