@@ -50,11 +50,18 @@ These setup steps are only needed first time
 ```
 ssh root@sandbox.hortonworks.com
 ```
+- **Edit /etc/hosts of sandbox** to change the "localhost" entry to point to IP address instead of 127.0.0.1, then restart network service. This is needed because kafka binds to IP address
+```
+vi /etc/hosts
+
+service network restart
+```
+
 - Pull latest code/scripts
 ```
 git clone https://github.com/abajwa-hw/hdp22-twitter-demo.git	
 ```
-- This starts Ambari/HBase and installs maven, kafka, solr, banana, phoenix-may take 10 min
+- This starts Ambari/HBase and installs maven, solr, banana, phoenix-may take 10 min
 ```
 /root/hdp22-twitter-demo/setup-demo.sh
 source ~/.bashrc
