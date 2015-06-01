@@ -20,29 +20,22 @@ public class TwitterScheme implements Scheme{
 
 	private static String findSearch(String tweet){
 		String hashtag = "";
-		//First look for $hashtags
-		Matcher matcher = Pattern.compile("(\\$[\\p{L}]+)").matcher(tweet);
-		if (matcher.find())		
-			hashtag = matcher.group(1).toLowerCase().trim();
-		//if none found then look for #hashtags
-		if (hashtag.length() == 0){			
-			matcher = Pattern.compile("(\\#[\\p{L}]+)").matcher(tweet);
-			if (matcher.find())		
-				hashtag = matcher.group(1).toLowerCase().trim();		
-		}
-		
-		return hashtag;	
+		//look for $hashtags or #hashtags
+		Matcher matcher = Pattern.compile("((\\$|\\#)[\\p{L}]+)").matcher(tweet);
+		while (matcher.find())
+			hashtag += matcher.group(1).toLowerCase().trim() + " ";
+		return hashtag;
 	}
-		
+
 	@Override
 	public List<Object> deserialize(byte[] bytes) {
 		try {
 			String twitterEvent = new String(bytes, "UTF-8");
 			System.out.println("Scheme input:" + twitterEvent);
 
-			//delimiter should respect how Kafka producer is submitting events 
+			//delimiter should respect how Kafka producer is submitting events
 			String[] pieces = twitterEvent.split("\\|\\|");
-			
+
 			String userId  = pieces[0];
 			String displayname = pieces[1];
             String tweet = pieces[2];
@@ -67,18 +60,18 @@ public class TwitterScheme implements Scheme{
 			//return new Values(userId, tweet, created, longitude, latitude);
 			System.out.println("Creating a Scheme with userId[" + userId + "], tweet[" + tweet + "]");
 			return new Values(userId, displayname, hashtag, tweet, created, longitude, latitude, language, fulltext);
-			
+
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException(e);
 		}
-		
+
 	}
 
 	@Override
 	public Fields getOutputFields() {
 		return new Fields("userId", "displayname", "hashtag", "tweet", "created", "longitude", "latidude", "language", "fulltext");
-		
+
 	}
-	
+
 
 }
