@@ -11,6 +11,7 @@ import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
+
 import java.util.Map;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,13 +22,12 @@ import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-
+import org.apache.phoenix.jdbc.PhoenixDriver;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
@@ -45,7 +45,7 @@ public class TwitterRuleBolt implements IRichBolt {
 	private OutputCollector collector;
 	//private TruckEventRuleEngine ruleEngine;
 	//private static final Driver phoenixDriver = null;
-	private static Driver phoenixDriver;
+	private static Driver phoenixDriver = new PhoenixDriver();
 	Connection conn = null;
 	
 	private ConcurrentMap<String, AtomicInteger> twitterEvents = new ConcurrentHashMap();
@@ -54,20 +54,6 @@ public class TwitterRuleBolt implements IRichBolt {
 	public TwitterRuleBolt() {
         Timer timer = new Timer();  //At this line a new Thread will be created
         timer.schedule(new RemindTask(twitterEvents), 0, MONITOR_INTERVAL_SECS *1000); //delay in milliseconds
-	}
-
-	//Load Phoenix jar
-	static {
-		  try
-          	  {
-		  	URLClassLoader loader = new URLClassLoader(new URL[] {new URL("file:///root/phoenix-4.1.0-bin/hadoop2/phoenix-4.1.0-client-hadoop2.jar")}, null);                 
-                  	phoenixDriver = (Driver) loader.loadClass("org.apache.phoenix.jdbc.PhoenixDriver").newInstance();
-          	  }
-          	 catch(Exception e)
-          	{
-                  e.printStackTrace();
-                  throw new RuntimeException("Couldn't load phoenix driver ", e);
-          	}
 	}
 
 	
@@ -83,7 +69,7 @@ public class TwitterRuleBolt implements IRichBolt {
 	public void execute(Tuple input) {
 		String userId = input.getString(0);
 		String displayname = input.getString(1);
-		String hashtag = input.getString(2);
+		String hashtag_all = input.getString(2);
 		String tweet = input.getString(3);		
 		String created = input.getString(4);
 		String longitude = input.getString(5);
@@ -92,36 +78,43 @@ public class TwitterRuleBolt implements IRichBolt {
 		String fullTweet = input.getString(8);
 		
 							
-		if (hashtag.length() == 0){
+		if (hashtag_all.length() == 0){
 			System.out.println("Skipping tweet...unable to find hashtag from it:" + tweet);
+                        collector.ack(input);
 			return;
 		}
+		
+		String hashtags[] = hashtag_all.split(" ");
+		
+		for (String hashtag : hashtags){
 				
-		System.out.println("RuleBolt received event displayname: " + displayname + " hashtag: " + hashtag + " tweet: " + tweet );
-		//double latitude = input.getDoubleByField("latitude");
-		//long correlationId = input.getLongByField("correlationId");
-		//int truckId = input.getIntegerByField("truckId");
-		
-		//save event to our Map of events and retrive how many times its been mentioned in tweets tweeted
-   		 twitterEvents.putIfAbsent(hashtag, new AtomicInteger(0));
-   		 int numTimesStockTweeted = twitterEvents.get(hashtag).incrementAndGet();
-
-   		 System.out.println("Stock: " + hashtag + " now has count: " + numTimesStockTweeted + " structure: " + twitterEvents);
-		
-		//query HBase table for threshold for the stock symbol that was tweeted about
-		int threshold = findThresholdForStock(hashtag);
-		//int threshold = DEFAULT_ALERT_THRESHOLD;
-
-		//check if this event takes the tweet volume for this stock above threshold
-		if (numTimesStockTweeted > threshold) {
-			int unixTime = (int) (System.currentTimeMillis() / 1000L);
-			String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-			String upsert = String.format("upsert into alerts values(%d, '%s', '%s', %d)",unixTime, hashtag, timeStamp, numTimesStockTweeted);
-			System.out.println("ALERT!!! Stock: " + hashtag + " exceeded limit: " + threshold + " as it has count: " + numTimesStockTweeted + " on: " + timeStamp);
-					
-			runHbaseUpsert(upsert);
-								
-			createSolrAlert(userId, created,hashtag);
+			System.out.println("RuleBolt received event displayname: " + displayname + " hashtag: " + hashtag + " tweet: " + tweet );
+			//double latitude = input.getDoubleByField("latitude");
+			//long correlationId = input.getLongByField("correlationId");
+			//int truckId = input.getIntegerByField("truckId");
+			
+			//save event to our Map of events and retrive how many times its been mentioned in tweets tweeted
+	   		 twitterEvents.putIfAbsent(hashtag, new AtomicInteger(0));
+	   		 int numTimesStockTweeted = twitterEvents.get(hashtag).incrementAndGet();
+	
+			//query HBase table for threshold for the stock symbol that was tweeted about
+			int threshold = findThresholdForStock(hashtag);
+			//int threshold = DEFAULT_ALERT_THRESHOLD;
+	               
+	   		 System.out.println("\n\n\n\n\n\n\nStock: " + hashtag + " now has count: " + numTimesStockTweeted + ", threshold = " + threshold + " structure: " + twitterEvents + "\n\n\n\n\n\n\n");
+	
+			//check if this event takes the tweet volume for this stock above threshold
+			if (numTimesStockTweeted > threshold) {
+				int unixTime = (int) (System.currentTimeMillis() / 1000L);
+				String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+				String upsert = String.format("upsert into alerts values(%d, '%s', '%s', %d)",unixTime, hashtag, timeStamp, numTimesStockTweeted);
+				System.out.println("ALERT!!! Stock: " + hashtag + " exceeded limit: " + threshold + " as it has count: " + numTimesStockTweeted + " on: " + timeStamp);
+						
+				runHbaseUpsert(upsert);
+									
+				createSolrAlert(userId, created,hashtag);
+			}
+			
 		}
 		    		
 		collector.ack(input);
@@ -161,7 +154,7 @@ public class TwitterRuleBolt implements IRichBolt {
 		int threshold = DEFAULT_ALERT_THRESHOLD;
 	
 		try {
-			conn = phoenixDriver.connect("jdbc:phoenix:sandbox.hortonworks.com:2181:/hbase",new Properties());	
+			conn = phoenixDriver.connect("jdbc:phoenix:sandbox.hortonworks.com:2181:/hbase-unsecure",new Properties());	
 
 			ResultSet rst = conn.createStatement().executeQuery("select tweet_threshold from securities where lower(symbol)='"+hashtag+"'");
 		    				
@@ -205,14 +198,14 @@ public class TwitterRuleBolt implements IRichBolt {
 		Date  d=new Date(created);
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z+9HOUR'");
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z-4HOUR'");
-		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
+		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		created = formatter.format(d);	
 	
 		SolrServer server  = new HttpSolrServer("http://sandbox.hortonworks.com:8983/solr/tweets");
 		//create a tweet doc
 		SolrInputDocument doc = new SolrInputDocument();
 
-        	doc.addField("id", userId + ":" + "alert");
+        	doc.addField("id", userId + ":" + hashtag + "-" + created);
         	doc.addField("doctype_s", "alert");
         	doc.addField("createdAt_dt", created);
 		doc.addField("tag_s", hashtag);	
