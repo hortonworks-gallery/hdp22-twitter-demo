@@ -3,7 +3,7 @@
 #./runkafkaproducer.sh debug - this avoids streaming full JSON doc for ease of debugging
  
 MODE=$1
-KAFKA_HOME=/usr/hdp/2.2.0.0-2041/kafka
+KAFKA_HOME=/usr/hdp/current/kafka-broker/
 yum install -y ntp
 if [ "$MODE" == "" ]
 then
