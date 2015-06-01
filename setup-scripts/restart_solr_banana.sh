@@ -1,4 +1,7 @@
 echo "Rebuilding banana webapp..."
+cd /opt/banana/latest/src/app/dashboards
+/bin/cp -f ~/hdp22-twitter-demo/default.json .
+
 rm -f /opt/banana/latest/build/*
 cd /opt/banana/latest
 ant
