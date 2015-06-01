@@ -21,7 +21,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 - Demo setup:
 	- Either download and start prebuilt VM
-	- Start HDP 2.2 sandbox and run provided scripts to setup demo 
+	- Start HDP 2.2.4 sandbox and run provided scripts to setup demo 
 	
 ##### Contents
 
@@ -40,8 +40,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 These setup steps are only needed first time
 
-- Download HDP 2.2 sandbox VM image (Sandbox_HDP_2.2_VMware.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/)
-- Import Sandbox_HDP_2.2_VMware.ova into VMWare and configure its memory size to be at least 8GB RAM 
+- Download HDP 2.2.4 sandbox VM image from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
@@ -69,7 +68,6 @@ source ~/.bashrc
 - Open Ambari using admin/admin and make below changes under HBase>config and then restart HBase
 http://sandbox.hortonworks.com:8080
 ``` 
-zookeeper.znode.parent=/hbase
 hbase.regionserver.wal.codec=org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec
 ```
 - Start storm via Ambari
@@ -92,22 +90,22 @@ oauth.accessTokenSecret=
 ps -ef | grep kafka
 
 #if not, start kafka
-nohup /usr/hdp/2.2.0.0-2041/kafka/bin/kafka-server-start.sh /usr/hdp/2.2.0.0-2041/kafka/config/server.properties &
+nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/kafka-broker/config/server.properties &
 
 #create topic
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic test
 
 #list topic
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
 
 #start a producer and enter text on few lines
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:6667 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:9092 --topic test
 
 #start a consumer in a new terminal your text appears in the consumer
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
+/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
 
 #delete topic
-/usr/hdp/2.2.0.0-2041/kafka/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
 ```
 
 #####  Run Twitter demo
@@ -129,21 +127,23 @@ sed -i '1i#mtvstars,MTV Stars,Entertainment,Entertainment,Hollywood CA,000000000
 
 - Open connection to HBase via Phoenix and check you can list tables
 ```
-/root/phoenix-4.1.0-bin/hadoop2/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase
+/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
 !tables
 !q
 ```
 
-- Make sure HBase is up via Ambari and create Hbase table using csv data with placeholder tweet volume thresholds
+- Make sure HBase is up via Ambari and create Hbase tables using csv data with placeholder tweet volume thresholds
 ```
 /root/hdp22-twitter-demo/fetchSecuritiesList/runcreatehbasetables.sh
+/root/hdp22-twitter-demo/dictionray/run_createdictionary.sh
 ```
 
 - notice securities data was imported and alerts table is empty
 ```
-/root/phoenix-4.1.0-bin/hadoop2/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase
+/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
 select * from securities;
 select * from alerts;
+select * from dictionary;
 !q
 ```
 
@@ -210,7 +210,7 @@ http://sandbox.hortonworks.com:8983/solr/tweets/select?q=*%3A*&df=id&wt=json&fq=
 
 - Open connection to HBase via Phoenix and notice alerts were generated
 ```
-/root/phoenix-4.1.0-bin/hadoop2/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase
+/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
 select * from alerts
 ```
 ![Image](../master/screenshots/Alerts-screenshot.png?raw=true)
