@@ -25,7 +25,9 @@
     "filter": {
       "idQueue": [
         1,
-        2
+        2,
+        3,
+        4
       ],
       "list": {
         "0": {
@@ -33,8 +35,8 @@
           "to": "NOW/HOUR%2B1HOUR",
           "field": "createdAt_dt",
           "type": "time",
-          "fromDateObj": "2014-10-17T17:11:04.419Z",
-          "toDateObj": "2014-10-17T18:11:04.419Z",
+          "fromDateObj": "2015-06-01T20:12:37.820Z",
+          "toDateObj": "2015-06-01T21:12:37.820Z",
           "mandate": "must",
           "active": true,
           "alias": "",
@@ -56,7 +58,7 @@
       "panels": [
         {
           "error": "",
-          "span": 4,
+          "span": 5,
           "editable": true,
           "type": "timepicker",
           "loadingEditor": false,
@@ -80,8 +82,8 @@
           "timeformat": "",
           "refresh": {
             "enable": false,
-            "interval": 30,
-            "min": 3
+            "interval": 3,
+            "min": 1
           },
           "filter_id": 0,
           "spyable": true,
@@ -89,7 +91,7 @@
         },
         {
           "error": false,
-          "span": 4,
+          "span": 3,
           "editable": true,
           "group": [
             "default"
@@ -116,7 +118,7 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&wt=json&rows=0",
+            "query": "q=*%3A*&df=id&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&wt=json&rows=0\n",
             "basic_query": "",
             "custom": "&fq=doctype_s:tweet"
           },
@@ -130,7 +132,8 @@
           "tilt": false,
           "labels": true,
           "spyable": true,
-          "title": "Total Hits"
+          "title": "Total Hits",
+          "show_queries": true
         }
       ]
     },
@@ -143,7 +146,7 @@
       "panels": [
         {
           "error": false,
-          "span": 12,
+          "span": 8,
           "editable": true,
           "spyable": true,
           "group": [
@@ -172,12 +175,12 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.range=createdAt_dt&facet.range.start=NOW/HOUR-1HOUR&facet.range.end=NOW/HOUR%2B1HOUR&facet.range.gap=%2B30SECOND",
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.range=createdAt_dt&facet.range.start=NOW/HOUR-1HOUR&facet.range.end=NOW/HOUR%2B1HOUR&facet.range.gap=%2B30SECOND\n",
             "custom": "&fq=doctype_s:tweet"
           },
           "max_rows": 100000,
-          "value_field": null,
-          "group_field": null,
+          "value_field": "polarityCount_i",
+          "group_field": "polarity_s",
           "auto_int": true,
           "resolution": 100,
           "interval": "30s",
@@ -216,7 +219,8 @@
             "query_as_alias": false
           },
           "title": "Tweet Histogram",
-          "lines_smooth": false
+          "lines_smooth": false,
+          "show_queries": true
         }
       ]
     },
@@ -228,8 +232,7 @@
       "collapsable": true,
       "panels": [
         {
-          "error": false,
-          "span": 3,
+          "span": 2,
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
@@ -238,11 +241,11 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=language_s&facet.limit=10",
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=polarity_s&facet.limit=10&facet.missing=true",
             "custom": "&fq=doctype_s:tweet"
           },
           "mode": "count",
-          "field": "language_s",
+          "field": "polarity_s",
           "stats_field": "",
           "decimal_points": 0,
           "exclude": [],
@@ -259,7 +262,7 @@
           "arrangement": "horizontal",
           "chart": "pie",
           "counter_pos": "none",
-          "lastColor": "rgb(31,120,193)",
+          "lastColor": "rgb(110,208,224)",
           "spyable": true,
           "chartColors": [
             "#7EB26D",
@@ -319,10 +322,11 @@
             "#F9D9F9",
             "#DEDAF7"
           ],
-          "title": "Top languages"
+          "title": "Polarity",
+          "logAxis": false,
+          "show_queries": true
         },
         {
-          "error": false,
           "span": 3,
           "editable": true,
           "type": "terms",
@@ -332,17 +336,17 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=text_t&facet.limit=5",
-            "custom": "&fq=doctype_s:hashtag"
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=tag_ss&facet.limit=150&facet.missing=true",
+            "custom": "&fq=doctype_s:tweet"
           },
           "mode": "count",
-          "field": "tag_s",
+          "field": "tag_ss",
           "stats_field": "",
           "decimal_points": 0,
           "exclude": [],
           "missing": false,
           "other": false,
-          "size": 5,
+          "size": 150,
           "order": "descending",
           "style": {
             "font-size": "10pt"
@@ -413,11 +417,33 @@
             "#F9D9F9",
             "#DEDAF7"
           ],
-          "title": "Top Hashtags"
+          "title": "Top Hashtags",
+          "logAxis": false,
+          "show_queries": true
         },
         {
-          "error": false,
           "span": 3,
+          "editable": true,
+          "type": "tagcloud",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=tag_ss&facet.limit=20",
+            "custom": ""
+          },
+          "field": "tag_ss",
+          "size": 20,
+          "alignment": "vertical and horizontal",
+          "fontScale": 1,
+          "spyable": true,
+          "show_queries": true,
+          "title": "TAGS"
+        },
+        {
+          "span": 2,
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
@@ -426,7 +452,7 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=screenName_s&facet.limit=10",
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=screenName_s&facet.limit=10&facet.missing=true",
             "custom": "&fq=doctype_s:tweet"
           },
           "mode": "count",
@@ -507,11 +533,12 @@
             "#F9D9F9",
             "#DEDAF7"
           ],
-          "title": "Top Tweeters"
+          "title": "Top Tweeters",
+          "logAxis": false,
+          "show_queries": true
         },
         {
-          "error": false,
-          "span": 3,
+          "span": 2,
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
@@ -520,7 +547,7 @@
             "ids": [
               0
             ],
-            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=tag_s&facet.limit=5",
+            "query": "q=*%3A*&df=id&wt=json&rows=0&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]&facet=true&facet.field=tag_s&facet.limit=150&facet.missing=true",
             "custom": "&fq=doctype_s:alert"
           },
           "mode": "count",
@@ -530,7 +557,7 @@
           "exclude": [],
           "missing": false,
           "other": false,
-          "size": 5,
+          "size": 150,
           "order": "descending",
           "style": {
             "font-size": "10pt"
@@ -601,7 +628,9 @@
             "#F9D9F9",
             "#DEDAF7"
           ],
-          "title": "Alerts"
+          "title": "Alerts",
+          "logAxis": false,
+          "show_queries": true
         }
       ]
     },
@@ -613,7 +642,6 @@
       "collapsable": true,
       "panels": [
         {
-          "error": false,
           "span": 12,
           "editable": true,
           "type": "table",
@@ -631,7 +659,9 @@
           "size": 10,
           "pages": 5,
           "offset": 0,
-          "sort": ["createdAt_dt"],
+          "sort": [
+            "createdAt_dt"
+          ],
           "group": "default",
           "style": {
             "font-size": "9pt"
@@ -641,7 +671,8 @@
             "createdAt_dt",
             "screenName_s",
             "text_t",
-            "language_s"
+            "language_s",
+            "polarity_s"
           ],
           "highlight": [],
           "sortable": true,
@@ -658,7 +689,20 @@
           "imageFields": [],
           "imgFieldWidth": "auto",
           "imgFieldHeight": "85px",
-          "title": "Tweets"
+          "title": "Tweets",
+          "important_fields": [
+            "_version_",
+            "createdAt_dt",
+            "doctype_s",
+            "id",
+            "language_s",
+            "polarity_s",
+            "screenName_s",
+            "tag_s",
+            "tag_ss",
+            "text_t"
+          ],
+          "show_queries": true
         }
       ]
     }
@@ -696,4 +740,3 @@
     "global_params": "&df=id"
   }
 }
-
