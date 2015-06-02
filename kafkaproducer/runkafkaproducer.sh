@@ -10,15 +10,6 @@ then
 	MODE="nondebug"
 fi
 
-if [ `ps -ef |  grep kafka.Kafk[a] | wc -l` -gt 0 ]
-then
-	echo "Detected Kafka is already running"
-else
-	echo "Kafka is down...restarting"
-	nohup /opt/kafka/latest/bin/kafka-server-start.sh /opt/kafka/latest/config/server.properties &
-	sleep 5
-fi
-	
 TOPICS=`$KAFKA_HOME/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | wc -l`
 if [ $TOPICS == 0 ]
 then

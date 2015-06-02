@@ -60,17 +60,22 @@ service network restart
 ```
 git clone https://github.com/abajwa-hw/hdp22-twitter-demo.git	
 ```
-- This starts Ambari/HBase and installs maven, solr, banana, phoenix-may take 10 min
+- Add users to global allow policies in Ranger
+  - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
+  ```
+  service ranger-admin start
+  ```
+  - "HDFS Global Allow": add group root to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hdfs/1/policy/2
+  - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
+  - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
+    - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
+    
+- Then run below to start Ambari/HBase/Kafka/Storm and installs maven, solr, banana, phoenix-may take 10 min
 ```
 /root/hdp22-twitter-demo/setup-demo.sh
 source ~/.bashrc
 ```
-- Open Ambari using admin/admin and make below changes under HBase>config and then restart HBase
-http://sandbox.hortonworks.com:8080
-``` 
-hbase.regionserver.wal.codec=org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec
-```
-- Start storm via Ambari
+
 - Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
 - Then enter the 4 values into the file below in the sandbox
@@ -108,7 +113,22 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
 ```
 
-#####  Run Twitter demo
+#####  Run Twitter demo 
+
+###### Option 1: Quick setup/start scripts
+
+- Setup demo
+```
+cd /root/hdp22-twitter-demo
+./setup-demo.sh
+```
+- Start topology
+```
+cd /root/hdp22-twitter-demo
+./start-demo.sh
+```
+
+#####  Option 2: Step by step instructions
 
 - Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
@@ -135,7 +155,7 @@ sed -i '1i#mtvstars,MTV Stars,Entertainment,Entertainment,Hollywood CA,000000000
 - Make sure HBase is up via Ambari and create Hbase tables using csv data with placeholder tweet volume thresholds
 ```
 /root/hdp22-twitter-demo/fetchSecuritiesList/runcreatehbasetables.sh
-/root/hdp22-twitter-demo/dictionray/run_createdictionary.sh
+/root/hdp22-twitter-demo/dictionary/run_createdictionary.sh
 ```
 
 - notice securities data was imported and alerts table is empty
@@ -180,20 +200,20 @@ http://sandbox.hortonworks.com:8744/
 'Acked' columns should start increasing
 http://sandbox.hortonworks.com:8744/
 
-- Open HDFS via Hue and see the tweets getting stored (note not all tweets have long/lat):
-http://sandbox.hortonworks.com:8000/filebrowser/#/tweets/staging
+- Open Files view and see the tweets getting stored:
+http://sandbox.hortonworks.com:8080/#/main/views/FILES/0.1.0/MyFiles
 
-![Image](../master/screenshots/HDFS-screenshot.png?raw=true)
+![Image](../master/screenshots/Files-view.png?raw=true)
 
-- Open Hive table via Hue. Notice tweets are being streamed to Hive table that was created:
-http://sandbox.hortonworks.com:8000/beeswax/table/default/tweets_text_partition
+- Open Hive table via Hive view. Notice tweets appear in the Hive table that was created:
+http://sandbox.hortonworks.com:8080/#/main/views/HIVE/0.2.0/MyHive
 
-![Image](../master/screenshots/Hue-text-screenshot.png?raw=true)
+![Image](../master/screenshots/Hive-view.png?raw=true)
 
 - Open Banana UI and view/search tweet summary and alerts:
 http://sandbox.hortonworks.com:8983/banana
 
-![Image](../master/screenshots/Banana-screenshot.png?raw=true)
+![Image](../master/screenshots/Banana-view.png?raw=true)
   - For more details on the Banana dashboard panels are built, refer to the underlying [json](https://github.com/abajwa-hw/hdp22-twitter-demo/blob/master/default.json) file that defines all the panels 
   - In case you don't see any tweets, try changing to a different timeframe on timeline (e.g. by clicking 24 hours, 7 days etc). If there is a time mismatch between the VM and your machine, the tweets may appear at a different place on the timeline than expected.
  

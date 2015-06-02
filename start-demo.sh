@@ -1,11 +1,23 @@
-if [ `ps -ef |  grep kafka.Kafk[a] | wc -l` -gt 0 ]
+source ambari_util.sh
+
+ambari-server status
+ret=$?
+if [ $ret -ne 0 ]
 then
-        echo "Detected Kafka is already running"
-else
-        echo "Kafka is down...restarting"
-        nohup /opt/kafka/latest/bin/kafka-server-start.sh /opt/kafka/latest/config/server.properties &
-        sleep 5
+        ambari-server start
+        ambari-agent start
 fi
+
+service ranger-admin start
+
+echo '*** Starting Storm....'
+startWait STORM
+
+echo '*** Starting HBase....'
+startWait HBASE
+
+echo '*** Starting kafka....'
+startWait KAFKA
 
 /root/hdp22-twitter-demo/setup-scripts/restart_solr_banana.sh
 cd ~/hdp22-twitter-demo/stormtwitter-mvn
