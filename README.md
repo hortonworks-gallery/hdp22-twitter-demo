@@ -40,7 +40,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 These setup steps are only needed first time
 
-- Download HDP 2.2.4 sandbox VM image from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Download HDP 2.2.4.2 sandbox VM image from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
@@ -69,13 +69,8 @@ git clone https://github.com/abajwa-hw/hdp22-twitter-demo.git
   - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
   - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
     - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
+  - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
     
-- Then run below to start Ambari/HBase/Kafka/Storm and installs maven, solr, banana, phoenix-may take 10 min
-```
-/root/hdp22-twitter-demo/setup-demo.sh
-source ~/.bashrc
-```
-
 - Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
 - Then enter the 4 values into the file below in the sandbox
@@ -87,6 +82,11 @@ oauth.accessToken=
 oauth.accessTokenSecret=
 ```
 
+- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana, phoenix-may take 10 min
+```
+cd /root/hdp22-twitter-demo
+./setup-demo.sh
+```
 
 ##### Kafka basics - (optional)
 
@@ -115,71 +115,47 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 
 #####  Run Twitter demo 
 
-###### Option 1: Quick setup/start scripts
+#####  Start demo
 
-- Setup demo
-```
-cd /root/hdp22-twitter-demo
-./setup-demo.sh
-```
-- Start topology
-```
-cd /root/hdp22-twitter-demo
-./start-demo.sh
-```
-
-#####  Option 2: Step by step instructions
-
-- Review the list of stock symbols whose Twitter mentiones we will be tracking
+- (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 
-- Generate securities csv from above page and review the securities.csv generated. The last field is the generated tweet volume threshold 
+- (Optional) Generate securities csv from above page and review the securities.csv generated. The last field is the generated tweet volume threshold 
 ```
 /root/hdp22-twitter-demo/fetchSecuritiesList/rungeneratecsv.sh
 cat /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
-- Optional step for future runs: can add other stocks/trending topics to csv to speed up tweets (no trailing spaces). Find these at http://mobile.twitter.com/trends
+- (Optional) step for future runs: can add other stocks/trending topics to csv to speed up tweets (no trailing spaces). Find these at http://mobile.twitter.com/trends
 ```
 sed -i '1i$HDP,Hortonworks,Technology,Technology,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 sed -i '1i#mtvstars,MTV Stars,Entertainment,Entertainment,Hollywood CA,0000000001,40' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
-- Open connection to HBase via Phoenix and check you can list tables
+- (Optional) Open connection to HBase via Phoenix and check you can list tables. Notice securities data was imported and alerts table is empty
 ```
 /usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
 !tables
-!q
-```
-
-- Make sure HBase is up via Ambari and create Hbase tables using csv data with placeholder tweet volume thresholds
-```
-/root/hdp22-twitter-demo/fetchSecuritiesList/runcreatehbasetables.sh
-/root/hdp22-twitter-demo/dictionary/run_createdictionary.sh
-```
-
-- notice securities data was imported and alerts table is empty
-```
-/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
 select * from securities;
 select * from alerts;
 select * from dictionary;
 !q
 ```
 
-- create Hive table where we will store the tweets for later analysis
+- (Optional) check Hive table schema where we will store the tweets for later analysis
 ```
-hive -f /root/hdp22-twitter-demo/stormtwitter-mvn/twitter.sql
+hive -e 'desc tweets_text_partition'
 ```
 
-- Ensure Storm is started and then start storm topology to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
+- Start storm topology to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
+```
+cd /root/hdp22-twitter-demo
+./start-demo.sh
+```
+
+- (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
 ```
 cd /root/hdp22-twitter-demo/stormtwitter-mvn
-./runtopology.sh
-```
-
-- Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
-```
 ./runtopology.sh runOnCluster clean
 ./runtopology.sh runLocally skipclean
 ```
@@ -214,6 +190,7 @@ http://sandbox.hortonworks.com:8080/#/main/views/HIVE/0.2.0/MyHive
 http://sandbox.hortonworks.com:8983/banana
 
 ![Image](../master/screenshots/Banana-view.png?raw=true)
+
   - For more details on the Banana dashboard panels are built, refer to the underlying [json](https://github.com/abajwa-hw/hdp22-twitter-demo/blob/master/default.json) file that defines all the panels 
   - In case you don't see any tweets, try changing to a different timeframe on timeline (e.g. by clicking 24 hours, 7 days etc). If there is a time mismatch between the VM and your machine, the tweets may appear at a different place on the timeline than expected.
  
