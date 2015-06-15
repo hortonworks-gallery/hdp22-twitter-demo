@@ -295,3 +295,25 @@ and stops the storm topoogy
 zookeeper-client
 rmr /group1
 ```
+
+##### Run demo on cluster
+
+- To run on actual cluster instead of sandbox, there are a few things that need to be changed before compiling/starting the demo:
+  - when running kafka/Hbase shell, change the zookeeper connect strings to use localhost instead of sandbox
+  - /root/hdp22-twitter-demo/solrconfig.xml: change sandbox reference to HDFS location of solr user e.g. hdfs://summit-twitterdemo01.cloud.hortonworks.com:8020/user/solr
+  - /root/hdp22-twitter-demo/default.json: change sandbox to Solr server (e.g. summit-twitterdemo01.cloud.hortonworks.com)
+  - /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm/GNstorm.java: change zookeeper host, NN url, Hive metastore
+    - ```BrokerHosts hosts = new ZkHosts("localhost:2181”);```
+	- ```String fsUrl = "hdfs://summit-twitterdemo01.cloud.hortonworks.com:8020";```
+	- ```String sourceMetastoreUrl = "thrift://summit-twitterdemo02.cloud.hortonworks.com:9083”;```
+
+
+  - /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm/SolrBolt.java: change Solr collection url reference and zookeeper host reference
+	- ```server = new HttpSolrServer("http://summit-twitterdemo01.cloud.hortonworks.com:8983/solr/tweets");```
+	- ```conn = phoenixDriver.connect("jdbc:phoenix:localhost:2181:/hbase-unsecure",new Properties());```
+
+  - /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm/TwitterRuleBolt.java: change Solr collection url reference and zookeeper host reference
+	- ```conn = phoenixDriver.connect("jdbc:phoenix:localhost:2181:/hbase-unsecure",new Properties());```
+	- ```SolrServer server  = new HttpSolrServer("http://summit-twitterdemo01.cloud.hortonworks.com:8983/solr/tweets");```
+	
+	
