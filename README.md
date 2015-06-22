@@ -35,6 +35,10 @@ Listen for Twitter streams related to S&P 500 companies
 7. [Reset demo](https://github.com/abajwa-hw/hdp22-twitter-demo#reset-demo)
 
 
+##### Prebuilt VM Setup Option
+
+WIP 
+
 
 ##### Setup demo 
 
@@ -82,7 +86,7 @@ oauth.accessToken=
 oauth.accessTokenSecret=
 ```
 
-- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana, phoenix-may take 10 min
+- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
 ```
 cd /root/hdp22-twitter-demo
 ./setup-demo.sh
@@ -126,10 +130,10 @@ http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 cat /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
-- (Optional) step for future runs: can add other stocks/trending topics to csv to speed up tweets (no trailing spaces). Find these at http://mobile.twitter.com/trends
+- (Optional) step for future runs: can add other stocks/hashtags to monitor to the csv (make sure no trailing spaces/new lines at the end of the file). Find these at http://mobile.twitter.com/trends
 ```
 sed -i '1i$HDP,Hortonworks,Technology,Technology,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
-sed -i '1i#mtvstars,MTV Stars,Entertainment,Entertainment,Hollywood CA,0000000001,40' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
+sed -i '1i#hadoopsummit,Hadoop Summit,Hadoop,Hadoop,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
 - (Optional) Open connection to HBase via Phoenix and check you can list tables. Notice securities data was imported and alerts table is empty
