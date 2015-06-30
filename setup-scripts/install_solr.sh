@@ -6,7 +6,8 @@ su -l hdfs -c "hadoop fs -mkdir -p /user/solr"
 su -l hdfs -c "hadoop fs -chown solr /user/solr"
 
 cd /opt/solr
-wget  http://www.interior-dsgn.com/apache/lucene/solr/4.10.2/solr-4.10.2.tgz
+#wget  http://www.interior-dsgn.com/apache/lucene/solr/4.10.2/solr-4.10.2.tgz
+wget https://archive.apache.org/dist/lucene/solr/4.10.2/solr-4.10.2.tgz
 tar xzf solr-4.10.2.tgz
 ln -s solr-4.10.2 latest
 rm -rf solr-*.tgz
