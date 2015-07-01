@@ -5,9 +5,10 @@ This demo was part of a technical webinar workshop: "Real Time Monitoring with H
 Slides and webinar recording are available at http://hortonworks.com/partners/learn/#rt
 
 Author: [Ali Bajwa](https://www.linkedin.com/in/aliabajwa)
-With thanks to:
+
+With special thanks to:
   - [Guilherme Braccialli](https://github.com/gbraccialli) for helping to maintain the code and adding sentiment analysis component 
-  - [Tim Veil](https://github.com/timveil) for the original banana dashboard
+  - [Tim Veil](https://github.com/timveil) for developing the original banana dashboard
 
 #### Monitor Twitter stream for S&P 500 companies to identify & act on unexpected increases in tweet volume
 
