@@ -21,4 +21,5 @@ startWait KAFKA
 
 /root/hdp22-twitter-demo/setup-scripts/restart_solr_banana.sh
 cd ~/hdp22-twitter-demo/stormtwitter-mvn
+mvn dependency:purge-local-repository
 ./runtopology.sh
