@@ -42,7 +42,7 @@ public class SolrBolt extends BaseBasicBolt {
 	
 		server = new HttpSolrServer("http://sandbox.hortonworks.com:8983/solr/tweets");
 		try{
-			conn = phoenixDriver.connect("jdbc:phoenix:sandbox.hortonworks.com:2181:/hbase-unsecure",new Properties());
+			conn = phoenixDriver.connect("jdbc:phoenix:localhost:2181:/hbase-unsecure",new Properties());
 		}catch (SQLException e){
 			System.err.println("error when connection to phoenix" + e.toString());
 		}

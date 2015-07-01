@@ -155,7 +155,7 @@ public class TwitterRuleBolt implements IRichBolt {
 		int threshold = DEFAULT_ALERT_THRESHOLD;
 	
 		try {
-			conn = phoenixDriver.connect("jdbc:phoenix:sandbox.hortonworks.com:2181:/hbase-unsecure",new Properties());	
+			conn = phoenixDriver.connect("jdbc:phoenix:localhost:2181:/hbase-unsecure",new Properties());	
 
 			ResultSet rst = conn.createStatement().executeQuery("select tweet_threshold from securities where lower(symbol)='"+hashtag+"'");
 		    				

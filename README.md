@@ -104,19 +104,19 @@ ps -ef | grep kafka
 nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/kafka-broker/config/server.properties &
 
 #create topic
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
 #list topic
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | grep test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper localhost:2181 --list | grep test
 
 #start a producer and enter text on few lines
-/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list sandbox.hortonworks.com:6667 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list localhost:6667 --topic test
 
 #start a consumer in a new terminal your text appears in the consumer
-/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper sandbox.hortonworks.com:2181 --topic test --from-beginning
+/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 
 #delete topic
-/usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper sandbox.hortonworks.com:2181 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
 ```
 
 #####  Run Twitter demo 
@@ -140,7 +140,7 @@ sed -i '1i#hadoopsummit,Hadoop Summit,Hadoop,Hadoop,Santa Clara CA,0000000001,5'
 
 - (Optional) Open connection to HBase via Phoenix and check you can list tables. Notice securities data was imported and alerts table is empty
 ```
-/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
+/usr/hdp/current/phoenix-client/bin/sqlline.py  localhost:2181:/hbase-unsecure
 !tables
 select * from securities;
 select * from alerts;
@@ -213,7 +213,7 @@ http://sandbox.hortonworks.com:8983/solr/tweets/select?q=*%3A*&df=id&wt=json&fq=
 
 - Open connection to HBase via Phoenix and notice alerts were generated
 ```
-/usr/hdp/current/phoenix-client/bin/sqlline.py  sandbox.hortonworks.com:2181:/hbase-unsecure
+/usr/hdp/current/phoenix-client/bin/sqlline.py  localhost:2181:/hbase-unsecure
 select * from alerts
 ```
 ![Image](../master/screenshots/Alerts-screenshot.png?raw=true)

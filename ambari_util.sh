@@ -28,6 +28,7 @@ function stop(){
 curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X PUT -d \
    '{"RequestInfo": {"context" :"Turn off maintenance mode for '"$1"' "}, "Body": {"ServiceInfo": {"maintenance_state": "OFF"}}}' http://$host/api/v1/clusters/$cluster/services/$1
 
+sleep 3
 
   curl -s -u $user:$pass -H 'X-Requested-By: ambari' -X PUT -d \
     '{"RequestInfo": {"context" :"Stop '"$1"' via REST"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' \

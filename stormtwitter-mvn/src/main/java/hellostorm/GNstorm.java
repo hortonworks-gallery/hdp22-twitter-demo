@@ -44,7 +44,7 @@ public class GNstorm {
 		TopologyBuilder builder = new TopologyBuilder();
 
 		//Setup Kafka spout
-		BrokerHosts hosts = new ZkHosts("sandbox.hortonworks.com:2181");
+		BrokerHosts hosts = new ZkHosts("localhost:2181");
 		String topic = "twitter_events";
 		String zkRoot = "";
 		String consumerGroupId = "group1";

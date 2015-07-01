@@ -40,11 +40,11 @@ startWait KAFKA
 sleep 3
 
 KAFKA_HOME=/usr/hdp/current/kafka-broker
-TOPICS=`$KAFKA_HOME/bin/kafka-topics.sh --zookeeper sandbox.hortonworks.com:2181 --list | wc -l`
+TOPICS=`$KAFKA_HOME/bin/kafka-topics.sh --zookeeper localhost:2181 --list | wc -l`
 if [ $TOPICS == 0 ]
 then
 	echo "No Kafka topics found...creating..."
-	$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper sandbox.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic twitter_events	
+	$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitter_events	
 fi
 
 if [ ! -d '/root/hdp22-twitter-demo/logs' ]
