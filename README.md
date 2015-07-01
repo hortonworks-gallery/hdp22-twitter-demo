@@ -146,7 +146,7 @@ select * from dictionary;
 hive -e 'desc tweets_text_partition'
 ```
 
-- Start storm topology to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
+- **Start Storm Twitter topology** to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
 ```
 cd /root/hdp22-twitter-demo
 ./start-demo.sh
@@ -162,7 +162,7 @@ cd /root/hdp22-twitter-demo/stormtwitter-mvn
 - open storm UI and confirm topology was created
 http://sandbox.hortonworks.com:8744/
 
-- In a new terminal, compile and run kafka producer to generate tweets containing first 400 stock symbols values from csv
+- **Start Kafka producer**: In a new terminal, compile and run kafka producer to generate tweets containing first 400 stock symbols values from csv
 ```
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
