@@ -3,6 +3,8 @@ source ambari_util.sh
 ambari-server start
 ambari-agent start
 
+sleep 4
+
 service ranger-admin start
 
 echo '*** Starting Storm....'
