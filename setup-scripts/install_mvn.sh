@@ -8,6 +8,9 @@ fi
 
 yum -y install apache-maven
 
+mkdir -p /root/.m2/
+cp /root/hdp22-twitter-demo/settings.xml /root/.m2/
+
 #mkdir /usr/share/maven
 #cd /usr/share/maven
 #wget http://mirrors.koehn.com/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
