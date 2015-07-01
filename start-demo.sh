@@ -1,12 +1,7 @@
 source ambari_util.sh
 
-ambari-server status
-ret=$?
-if [ $ret -ne 0 ]
-then
-        ambari-server start
-        ambari-agent start
-fi
+ambari-server start
+ambari-agent start
 
 service ranger-admin start
 
