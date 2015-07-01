@@ -31,14 +31,16 @@ Listen for Twitter streams related to S&P 500 companies
 	
 ##### Contents
 
-1. [Prebuilt VM option](https://github.com/abajwa-hw/hdp22-twitter-demo#prebuilt-vm-setup-option)
-1. [Setup demo manually option](https://github.com/abajwa-hw/hdp22-twitter-demo#setup-demo-manually-option)
-2. [Kafka basics - optional](https://github.com/abajwa-hw/hdp22-twitter-demo#kafka-basics---optional)
-3. [Run demo](https://github.com/abajwa-hw/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
-4. [Observe results](https://github.com/abajwa-hw/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
-5. [Import data into BI tools - optional](https://github.com/abajwa-hw/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional) after copying into ORC table
-6. [Other things to try - optional](https://github.com/abajwa-hw/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
-7. [Reset demo](https://github.com/abajwa-hw/hdp22-twitter-demo#reset-demo)
+1. [Prebuilt VM option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#prebuilt-vm-setup-option)
+1. [Setup demo manually option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo)
+2. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
+3. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
+4. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
+5. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
+6. [Import data into BI tools - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional) after copying into ORC table
+7. [Other things to try - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
+8. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
+9. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
 
 
 ##### Prebuilt VM Setup Option
