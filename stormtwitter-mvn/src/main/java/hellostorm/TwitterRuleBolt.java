@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -199,6 +200,7 @@ public class TwitterRuleBolt implements IRichBolt {
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z+9HOUR'");
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z-4HOUR'");
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		created = formatter.format(d);	
 	
 		SolrServer server  = new HttpSolrServer("http://sandbox.hortonworks.com:8983/solr/tweets");

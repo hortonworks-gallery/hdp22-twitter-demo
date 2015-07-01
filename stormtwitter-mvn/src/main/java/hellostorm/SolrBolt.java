@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -66,6 +67,7 @@ public class SolrBolt extends BaseBasicBolt {
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z+9HOUR'");
 		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z-4HOUR'");
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		created = formatter.format(d);
 
 		//create a tweet doc
