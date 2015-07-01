@@ -4,6 +4,8 @@ This demo was part of a technical webinar workshop: "Real Time Monitoring with H
 
 Slides and webinar recording are available at http://hortonworks.com/partners/learn/
 
+Author: [Ali Bajwa](https://www.linkedin.com/in/aliabajwa)
+
 #### Monitor Twitter stream for S&P 500 companies to identify & act on unexpected increases in tweet volume
 
 - Ingest: 
