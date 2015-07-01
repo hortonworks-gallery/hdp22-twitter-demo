@@ -5,6 +5,9 @@ This demo was part of a technical webinar workshop: "Real Time Monitoring with H
 Slides and webinar recording are available at http://hortonworks.com/partners/learn/
 
 Author: [Ali Bajwa](https://www.linkedin.com/in/aliabajwa)
+With thanks to:
+  - [Guilherme Braccialli](https://github.com/gbraccialli) for helping to maintain the code and adding sentiment analysis component 
+  - [Tim Veil](https://github.com/timveil) for the original banana dashboard
 
 #### Monitor Twitter stream for S&P 500 companies to identify & act on unexpected increases in tweet volume
 
@@ -66,16 +69,6 @@ service network restart
 ```
 git clone https://github.com/abajwa-hw/hdp22-twitter-demo.git	
 ```
-- Add users to global allow policies in Ranger
-  - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
-  ```
-  service ranger-admin start
-  ```
-  - "HDFS Global Allow": add group root to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hdfs/1/policy/2
-  - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
-  - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
-    - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
-  - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
     
 - Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
@@ -87,6 +80,18 @@ oauth.consumerSecret=
 oauth.accessToken=
 oauth.accessTokenSecret=
 ```
+
+- (Optional): In case of Ranger authorization errors, add users to global allow policies
+  - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
+  ```
+  service ranger-admin start
+  ```
+  - "HDFS Global Allow": add group root to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hdfs/1/policy/2
+  - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
+  - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
+    - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
+  - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
+
 
 - Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
 ```
@@ -122,6 +127,8 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #####  Run Twitter demo 
 
 #####  Start demo
+
+Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
 
 - (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
@@ -231,6 +238,18 @@ storm kill Twittertopology
 ```
 - To stop producing tweets, press Control-C in the terminal you ran runkafkaproducer.sh 
 
+##### Use Zeppelin to create charts to analyze tweets
+
+- Apache Zeppelin can also be installed on the cluster/sandbox to generate charts for analysis using:
+  - Spark
+  - SparkSQL
+  - Hive
+  - Flink 
+
+- The [Zeppelin Ambari service](https://github.com/hortonworks-gallery/ambari-zeppelin-service) can be used to easily install/manage Zeppelin on HDP cluster
+
+- Sample queries and charts:
+![Image](../master/screenshots/twitter-zeppelin.png?raw=true)  
 
 ##### Import data to BI Tool via ODBC for analysis - optional
 
