@@ -35,12 +35,13 @@ Listen for Twitter streams related to S&P 500 companies
 1. [Setup demo manually option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo)
 2. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 3. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
-4. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
-5. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
-6. [Import data into BI tools - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional)
-7. [Other things to try - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
-8. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
-9. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
+4. [Troubleshooting](https://github.com/hortonworks-gallery/hdp22-twitter-demo#troubleshooting)
+5. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
+6. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
+7. [Import data into BI tools - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional)
+8. [Other things to try - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
+9. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
+10. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
 
 
 ##### Prebuilt VM Setup Option
@@ -61,12 +62,6 @@ These setup steps are only needed first time
 ```
 ssh root@sandbox.hortonworks.com
 ```
-- **Edit /etc/hosts of sandbox** to change the "localhost" entry to point to IP address instead of 127.0.0.1, then restart network service. This is needed because kafka binds to IP address
-```
-vi /etc/hosts
-
-service network restart
-```
 
 - Pull latest code/scripts
 ```
@@ -83,18 +78,6 @@ oauth.consumerSecret=
 oauth.accessToken=
 oauth.accessTokenSecret=
 ```
-
-- (Optional): In case of Ranger authorization errors, add users to global allow policies
-  - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
-  ```
-  service ranger-admin start
-  ```
-  - "HDFS Global Allow": add group root to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hdfs/1/policy/2
-  - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
-  - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
-    - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
-  - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
-
 
 - Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
 ```
@@ -142,7 +125,7 @@ http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 cat /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
-- (Optional) step for future runs: can add other stocks/hashtags to monitor to the csv (make sure no trailing spaces/new lines at the end of the file). Find these at http://mobile.twitter.com/trends
+- (Optional) for future runs: you can add other stocks/hashtags to monitor to the csv (make sure no trailing spaces/new lines at the end of the file). Find these at http://mobile.twitter.com/trends
 ```
 sed -i '1i$HDP,Hortonworks,Technology,Technology,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 sed -i '1i#hadoopsummit,Hadoop Summit,Hadoop,Hadoop,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
@@ -183,6 +166,22 @@ http://sandbox.hortonworks.com:8744/
 ```
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
+
+##### Troubleshooting
+- If Storm webUI shows topology errors...
+
+- (Optional): In case of Ranger authorization errors, add users to global allow policies
+  - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
+  ```
+  service ranger-admin start
+  ```
+  - "HDFS Global Allow": add group root to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hdfs/1/policy/2
+  - "HBase Global Allow": add group hadoop to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hbase/3/policy/8 
+  - "Hive Global Tables Allow": add user admin to this policy - by opening http://sandbox.hortonworks.com:6080/#!/hive/2/policy/5
+    - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
+  - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
+
+
 
 ##### Observe results
 
