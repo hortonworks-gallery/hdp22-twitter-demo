@@ -2,7 +2,7 @@
 
 This demo was part of a technical webinar workshop: "Real Time Monitoring with Hadoop" and "Search Workshop"
 
-Slides and webinar recording are available at http://hortonworks.com/partners/learn/
+Slides and webinar recording are available at http://hortonworks.com/partners/learn/#rt
 
 Author: [Ali Bajwa](https://www.linkedin.com/in/aliabajwa)
 With thanks to:
