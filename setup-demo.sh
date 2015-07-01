@@ -1,6 +1,7 @@
 set -e 
 echo 'Starting Ambari'
 service ambari start
+sleep 5
 
 source ambari_util.sh
 
