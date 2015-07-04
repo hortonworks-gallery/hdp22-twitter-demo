@@ -1,7 +1,12 @@
 source ambari_util.sh
 
-ambari-server start
-ambari-agent start
+if [ -f /root/start_ambari.sh ]
+then
+	/root/start_ambari.sh
+else
+	ambari-server start
+	ambari-agent start
+fi
 
 sleep 4
 
