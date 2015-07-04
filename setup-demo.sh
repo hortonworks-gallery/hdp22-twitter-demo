@@ -1,9 +1,16 @@
 set -e 
+source ambari_util.sh
+
 echo 'Starting Ambari'
-service ambari start
+if [ -f /root/start_ambari.sh ]
+then
+	/root/start_ambari.sh
+else
+	ambari-server start
+	ambari-agent start
+fi
 sleep 5
 
-source ambari_util.sh
 
 if [ -e '/opt/solr' ]
 then
