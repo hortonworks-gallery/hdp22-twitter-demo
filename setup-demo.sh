@@ -1,5 +1,4 @@
 set -e 
-source ambari_util.sh
 
 echo 'Starting Ambari'
 if [ -f /root/start_ambari.sh ]
@@ -11,6 +10,7 @@ else
 fi
 sleep 5
 
+source ambari_util.sh
 
 if [ -e '/opt/solr' ]
 then
