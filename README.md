@@ -46,7 +46,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 #### Prebuilt VM Setup Option
 
-- Download VM from here (WIP). Import it into VMWare Fusion and start it up. 
+- Download VM from [here](https://www.dropbox.com/s/2ld0aoqo35su0sa/Sandbox_HDP_2.2.4.2_VMWare_twitter.ova?dl=0). Import it into VMWare Fusion and start it up. 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
