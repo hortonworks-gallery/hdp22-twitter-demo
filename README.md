@@ -32,7 +32,7 @@ Listen for Twitter streams related to S&P 500 companies
 ##### Contents
 
 1. [Prebuilt VM option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#prebuilt-vm-setup-option)
-1. [Setup demo manually option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo)
+1. [Setup demo manually on vanilla sandbox option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo-manually-on-vanilla-sandbox)
 2. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 3. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
 4. [Troubleshooting](https://github.com/hortonworks-gallery/hdp22-twitter-demo#troubleshooting)
@@ -46,12 +46,36 @@ Listen for Twitter streams related to S&P 500 companies
 
 ##### Prebuilt VM Setup Option
 
-WIP 
+- Download VM from here (WIP). Import it into VMWare Fusion and start it up. 
+- Find the IP address of the VM and add an entry into your machines hosts file e.g.
+```
+192.168.191.241 sandbox.hortonworks.com sandbox    
+```
+- Connect to the VM via SSH (password hadoop)
+```
+ssh root@sandbox.hortonworks.com
+```
+- Start the demo by
+```
+cd /root/hdp22-twitter-demo
+./start-demo.sh
+#once storm topology is submitted, press control-C
+
+#start kafka twitter producer
+./kafkaproducer/runkafkaproducer.sh
+
+```
+- [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
+
+- Troubleshooting: check the [Storm webUI](http://sandbox.hortonworks.com:8744) for any errors and try resetting using below script:
+```
+./reset-demo.sh
+```
 
 
-##### Setup demo 
+##### Setup demo manually on vanilla sandbox
 
-These setup steps are only needed first time
+These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
 
 - Download HDP 2.2.4.2 sandbox VM image from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
@@ -150,6 +174,7 @@ hive -e 'desc tweets_text_partition'
 ```
 cd /root/hdp22-twitter-demo
 ./start-demo.sh
+#once storm topology is submitted, press control-C
 ```
 
 - (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
