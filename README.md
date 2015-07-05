@@ -1,8 +1,9 @@
 ## Streaming workshop demo
 
-This demo was part of a technical webinar workshop: "Real Time Monitoring with Hadoop" and "Search Workshop"
+This demo was part of below technical webinar workshops
+  - "Real Time Monitoring with Hadoop" - Slides and webinar recording are available [here](http://hortonworks.com/partners/learn/#rt)
+  - "Search Workshop" - Slides and webinar recording are available [here](http://hortonworks.com/partners/learn/#search)
 
-Slides and webinar recording are available at http://hortonworks.com/partners/learn/#rt
 
 Author: [Ali Bajwa](https://www.linkedin.com/in/aliabajwa)
 
