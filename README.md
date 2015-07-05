@@ -193,6 +193,7 @@ http://sandbox.hortonworks.com:8744/
 ```
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
+------------------
 
 #### Troubleshooting
 - If Storm webUI shows topology errors...
@@ -213,7 +214,7 @@ http://sandbox.hortonworks.com:8744/
     - Note you will need to first create an admin user - by opening http://sandbox.hortonworks.com:6080/#!/users/usertab
   - ![Image](../master/screenshots/Rangerpolicies.png?raw=true)
 
-
+-------------------
 
 #### Observe results
 
@@ -263,6 +264,8 @@ select * from alerts
 ```
 vi /tmp/Tweets.xls
 ```
+
+------------------
 
 ##### To stop collecting tweets:
 
