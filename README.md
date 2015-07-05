@@ -31,17 +31,17 @@ Listen for Twitter streams related to S&P 500 companies
 	
 #### Contents
 
-1. [Prebuilt VM option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#prebuilt-vm-setup-option)
-1. [Setup demo manually on vanilla sandbox option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo-manually-on-vanilla-sandbox)
-2. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
-3. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
-4. [Troubleshooting](https://github.com/hortonworks-gallery/hdp22-twitter-demo#troubleshooting)
-5. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
-6. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
-7. [Import data into BI tools - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional)
-8. [Other things to try - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
-9. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
-10. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
+1. [Option 1: Setup demo using prebuilt VM based on HDP 2.2.4.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-2242-sandbox)
+2. [Option 2: Setup demo via scripts on vanilla HDP 2.2.4.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-2242-sandbox)
+3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
+4. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
+5. [Troubleshooting](https://github.com/hortonworks-gallery/hdp22-twitter-demo#troubleshooting)
+6. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
+7. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
+8. [Import data into BI tools - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#import-data-to-bi-tool-via-odbc-for-analysis---optional)
+9. [Other things to try - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#other-things-to-try-analyze-any-kind-of-tweet---optional)
+10. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
+11. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
 
 ---------------------
 
