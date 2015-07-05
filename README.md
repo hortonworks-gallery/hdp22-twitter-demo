@@ -109,7 +109,7 @@ cd /root/hdp22-twitter-demo
 ./setup-demo.sh
 ```
 
-##### Kafka basics - (optional)
+#### Kafka basics - (optional)
 
 ```
 #check if kafka already started
@@ -134,9 +134,9 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
 ```
 
-#####  Run Twitter demo 
+####  Run Twitter demo 
 
-#####  Start demo
+####  Start demo
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
 
@@ -192,7 +192,7 @@ http://sandbox.hortonworks.com:8744/
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
 
-##### Troubleshooting
+#### Troubleshooting
 - If Storm webUI shows topology errors...
 
 - (Optional): In case of Ranger authorization errors, add users to global allow policies
@@ -208,7 +208,7 @@ http://sandbox.hortonworks.com:8744/
 
 
 
-##### Observe results
+#### Observe results
 
 
 
@@ -257,7 +257,7 @@ select * from alerts
 vi /tmp/Tweets.xls
 ```
 
-###### To stop collecting tweets:
+##### To stop collecting tweets:
 
 - kill the storm topology to stop processing tweets
 ```
@@ -265,7 +265,7 @@ storm kill Twittertopology
 ```
 - To stop producing tweets, press Control-C in the terminal you ran runkafkaproducer.sh 
 
-##### Use Zeppelin to create charts to analyze tweets
+#### Use Zeppelin to create charts to analyze tweets
 
 - Apache Zeppelin can also be installed on the cluster/sandbox to generate charts for analysis using:
   - Spark
@@ -278,7 +278,7 @@ storm kill Twittertopology
 - Sample queries and charts:
 ![Image](../master/screenshots/twitter-zeppelin.png?raw=true)  
 
-##### Import data to BI Tool via ODBC for analysis - optional
+#### Import data to BI Tool via ODBC for analysis - optional
 
 - Create ORC table and copy the tweets over:
 ```
@@ -315,7 +315,7 @@ Data > From other Datasources > From dataconnection wizard > ODBC DSN > sandbox 
 
 
 
-##### Other things to try: Analyze any kind of tweet - optional
+#### Other things to try: Analyze any kind of tweet - optional
 
 
 - Instead of filtering on tweets from certain stocks/hashtags, you can also consume all 
@@ -334,7 +334,7 @@ vi /root/hdp22-twitter-demo/kafkaproducer/TestProducer.java
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
 
-##### Reset demo
+#### Reset demo
 
 - This empties out the demo related HDFS folders, Hive table, Solr core, Banana webapp
 and stops the storm topoogy
@@ -348,7 +348,7 @@ zookeeper-client
 rmr /group1
 ```
 
-##### Run demo on cluster
+#### Run demo on cluster
 
 - To run on actual cluster instead of sandbox, there are a few things that need to be changed before compiling/starting the demo:
   - when running kafka/Hbase shell, change the zookeeper connect strings to use localhost instead of sandbox
