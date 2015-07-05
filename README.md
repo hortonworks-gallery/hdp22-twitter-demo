@@ -29,7 +29,7 @@ Listen for Twitter streams related to S&P 500 companies
 	- Either download and start prebuilt VM
 	- Start HDP 2.2.4 sandbox and run provided scripts to setup demo 
 	
-##### Contents
+#### Contents
 
 1. [Prebuilt VM option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#prebuilt-vm-setup-option)
 1. [Setup demo manually on vanilla sandbox option](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-demo-manually-on-vanilla-sandbox)
@@ -44,7 +44,7 @@ Listen for Twitter streams related to S&P 500 companies
 10. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
 
 
-##### Prebuilt VM Setup Option
+#### Prebuilt VM Setup Option
 
 - Download VM from here (WIP). Import it into VMWare Fusion and start it up. 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
