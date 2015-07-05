@@ -197,6 +197,11 @@ http://sandbox.hortonworks.com:8744/
 #### Troubleshooting
 - If Storm webUI shows topology errors...
 
+- Check the [Storm webUI](http://sandbox.hortonworks.com:8744) for any errors and try resetting using below script:
+```
+./reset-demo.sh
+```
+
 - (Optional): In case of Ranger authorization errors, add users to global allow policies
   - Start Ranger and login to http://sandbox.hortonworks.com:6080 (admin/admin)
   ```
