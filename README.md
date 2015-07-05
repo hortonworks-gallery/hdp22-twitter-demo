@@ -112,6 +112,9 @@ cd /root/hdp22-twitter-demo
 ./setup-demo.sh
 ```
 
+------------------
+
+
 ##### Kafka basics - (optional)
 
 ```
@@ -276,6 +279,10 @@ storm kill Twittertopology
 ```
 - To stop producing tweets, press Control-C in the terminal you ran runkafkaproducer.sh 
 
+
+------------------
+
+
 #### Use Zeppelin to create charts to analyze tweets
 
 - Apache Zeppelin can also be installed on the cluster/sandbox to generate charts for analysis using:
@@ -288,6 +295,10 @@ storm kill Twittertopology
 
 - Sample queries and charts:
 ![Image](../master/screenshots/twitter-zeppelin.png?raw=true)  
+
+
+------------------
+
 
 #### Import data to BI Tool via ODBC for analysis - optional
 
@@ -325,6 +336,8 @@ Data > From other Datasources > From dataconnection wizard > ODBC DSN > sandbox 
 ![Image](../master/screenshots/PowerChart-screenshot.png?raw=true)
 
 
+------------------
+
 
 #### Other things to try: Analyze any kind of tweet - optional
 
@@ -345,6 +358,8 @@ vi /root/hdp22-twitter-demo/kafkaproducer/TestProducer.java
 /root/hdp22-twitter-demo/kafkaproducer/runkafkaproducer.sh
 ```
 
+------------------
+
 #### Reset demo
 
 - This empties out the demo related HDFS folders, Hive table, Solr core, Banana webapp
@@ -358,6 +373,8 @@ and stops the storm topoogy
 zookeeper-client
 rmr /group1
 ```
+
+------------------
 
 #### Run demo on cluster
 
