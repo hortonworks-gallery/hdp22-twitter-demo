@@ -36,7 +36,7 @@ Listen for Twitter streams related to S&P 500 companies
 2. [Option 2: Setup demo via scripts on vanilla HDP 2.2.4.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-2242-sandbox)
 3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 4. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
-5. [Stop demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#to-stop-collecting-tweets)
+5. [](https://github.com/hortonworks-gallery/hdp22-twitter-demo#to-stop-collecting-tweets)
 5. [Troubleshooting](https://github.com/hortonworks-gallery/hdp22-twitter-demo#troubleshooting)
 6. [Observe results](https://github.com/hortonworks-gallery/hdp22-twitter-demo#observe-results) in HDFS, Hive, Solr/Banana, HBase
 7. [Use Zeppelin to create charts to analyze tweets - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#use-zeppelin-to-create-charts-to-analyze-tweets)
@@ -212,7 +212,8 @@ storm kill Twittertopology
 
 ------------------
 
-##### Troubleshooting
+#### Troubleshooting
+
 - If Storm webUI shows topology errors...
 
 - Check the [Storm webUI](http://sandbox.hortonworks.com:8744) for any errors and try resetting using below script:
