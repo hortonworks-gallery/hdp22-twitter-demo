@@ -11,7 +11,9 @@ With special thanks to:
   - [Guilherme Braccialli](https://github.com/gbraccialli) for helping to maintain the code and adding sentiment analysis component 
   - [Tim Veil](https://github.com/timveil) for developing the original banana dashboard
 
-#### Monitor Twitter stream for S&P 500 companies to identify & act on unexpected increases in tweet volume
+------------------
+
+#### Purpose: Monitor Twitter stream for S&P 500 companies to identify & act on unexpected increases in tweet volume
 
 - Ingest: 
 Listen for Twitter streams related to S&P 500 companies 
@@ -29,6 +31,8 @@ Listen for Twitter streams related to S&P 500 companies
 - Demo setup:
 	- Either download and start prebuilt VM
 	- Start HDP 2.2.4 sandbox and run provided scripts to setup demo 
+
+------------------
 	
 #### Contents
 
