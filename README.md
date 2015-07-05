@@ -72,8 +72,9 @@ cd /root/hdp22-twitter-demo
 ./reset-demo.sh
 ```
 
+-------------------------
 
-##### Setup demo manually on vanilla sandbox
+#### Setup demo manually on vanilla sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
 
@@ -133,6 +134,7 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #delete topic
 /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
 ```
+-------------------------------
 
 ####  Run Twitter demo 
 
