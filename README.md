@@ -43,8 +43,9 @@ Listen for Twitter streams related to S&P 500 companies
 9. [Reset demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#reset-demo)
 10. [Run demo on cluster](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-demo-on-cluster)
 
+---------------------
 
-#### Prebuilt VM Setup Option
+#### Option 1: Setup demo using prebuilt VM based on HDP 2.2.4.2 sandbox
 
 - Download VM from [here](https://www.dropbox.com/s/2ld0aoqo35su0sa/Sandbox_HDP_2.2.4.2_VMWare_twitter.ova?dl=0). Import it into VMWare Fusion and start it up. 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
@@ -74,7 +75,8 @@ cd /root/hdp22-twitter-demo
 
 -------------------------
 
-#### Setup demo manually on vanilla sandbox
+
+#### Option 2: Setup demo via scripts on vanilla HDP 2.2.4.2 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
 
@@ -110,7 +112,7 @@ cd /root/hdp22-twitter-demo
 ./setup-demo.sh
 ```
 
-#### Kafka basics - (optional)
+##### Kafka basics - (optional)
 
 ```
 #check if kafka already started
@@ -136,9 +138,7 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 ```
 -------------------------------
 
-####  Run Twitter demo 
-
-####  Start demo
+#####  Run Twitter demo 
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
 
@@ -195,7 +195,7 @@ http://sandbox.hortonworks.com:8744/
 ```
 ------------------
 
-#### Troubleshooting
+##### Troubleshooting
 - If Storm webUI shows topology errors...
 
 - Check the [Storm webUI](http://sandbox.hortonworks.com:8744) for any errors and try resetting using below script:
