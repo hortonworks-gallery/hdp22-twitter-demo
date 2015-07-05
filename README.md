@@ -267,6 +267,7 @@ vi /tmp/Tweets.xls
 
 ------------------
 
+
 ##### To stop collecting tweets:
 
 - kill the storm topology to stop processing tweets
