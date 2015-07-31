@@ -80,14 +80,17 @@ echo "Creating Phoenix tables..."
 echo "Creating dictionary..."
 /root/hdp22-twitter-demo/dictionary/run_createdictionary.sh > /root/hdp22-twitter-demo/logs/run_createdictionary.log
 
-echo "Creating Hive table..."
-hive -f /root/hdp22-twitter-demo/stormtwitter-mvn/twitter.sql > /root/hdp22-twitter-demo/logs/create-hivetable.log
-
 echo "Creating /tweets/staging HDFS dir"
 sudo -u hdfs hadoop fs -rm -R /tweets
 sudo -u hdfs hadoop fs -mkdir /tweets
 sudo -u hdfs hadoop fs -chmod 777 /tweets
 sudo -u hdfs hadoop fs -mkdir /tweets/staging
+sudo -u hdfs hadoop fs -chmod 777 /tweets/staging
+
+echo "Creating Hive table..."
+hive -f /root/hdp22-twitter-demo/stormtwitter-mvn/twitter.sql > /root/hdp22-twitter-demo/logs/create-hivetable.log
+
+sudo -u hdfs hadoop fs -chmod 777 /tweets
 sudo -u hdfs hadoop fs -chmod 777 /tweets/staging
 
 echo "Setup complete. Logs available under /root/hdp22-twitter-demo/logs"
