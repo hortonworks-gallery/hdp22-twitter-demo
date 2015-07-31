@@ -2,7 +2,7 @@ set -e
 
 
 AMBARI_STARTED=`ps -ef | grep AmbariServe[r] | wc -l`
-if [ ! $AMBARI_STARTED ]
+if [ $AMBARI_STARTED -eq 0 ]
 then
 	echo 'Starting Ambari'
 	if [ -f /root/start_ambari.sh ]
