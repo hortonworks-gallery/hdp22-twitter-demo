@@ -52,9 +52,9 @@ Listen for Twitter streams related to S&P 500 companies
 
 ---------------------
  
-#### Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox - WIP
+#### Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox
 
-- Download VM from [here](). Import it into VMWare Fusion and start it up. 
+- Download VM from [here](https://www.dropbox.com/s/0rvez4lxcigg01c/Sandbox_HDP_2.3_VMWare_twitter.ova?dl=0). Import it into VMWare Fusion and start it up. 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
