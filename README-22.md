@@ -112,7 +112,7 @@ oauth.accessToken=
 oauth.accessTokenSecret=
 ```
 
-- Copy over the 2.2 version of the pom file
+- **Copy over the 2.2 version of the pom file**
 ```
 mv /root/hdp22-twitter-demo/stormtwitter-mvn/pom-22x.xml /root/hdp22-twitter-demo/stormtwitter-mvn/pom.xml
 ```
@@ -155,12 +155,6 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #####  Run Twitter demo 
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
-
-- **Use the 2.2 version of the pom file**
-```
-mv /root/hdp22-twitter-demo/stormtwitter-mvn/pom-22x.xml /root/hdp22-twitter-demo/stormtwitter-mvn/pom.xml
-```
-
 
 - (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
