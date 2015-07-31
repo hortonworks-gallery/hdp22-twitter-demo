@@ -1,14 +1,19 @@
 set -e 
 
-echo 'Starting Ambari'
-if [ -f /root/start_ambari.sh ]
+
+AMBARI_STARTED=`ps -ef | grep AmbariServe[r] | wc -l`
+if [ ! $AMBARI_STARTED ]
 then
-	/root/start_ambari.sh
-else
-	ambari-server start
-	ambari-agent start
+	echo 'Starting Ambari'
+	if [ -f /root/start_ambari.sh ]
+	then
+		/root/start_ambari.sh
+	else
+		ambari-server start
+		ambari-agent start
+	fi
+	sleep 5
 fi
-sleep 5
 
 source ambari_util.sh
 
