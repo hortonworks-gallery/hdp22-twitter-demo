@@ -31,7 +31,10 @@ Listen for Twitter streams related to S&P 500 companies
 - Demo setup:
 	- Either download and start prebuilt VM
 	- Start HDP 2.3 sandbox and run provided scripts to setup demo 
-	- For HDP 2.2 version of instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
+
+- Previous versions	
+	- For HDP 2.2 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
+	- For HDP 2.1 version of this demo see [here](https://github.com/abajwa-hw/hdp21-twitter-demo)
 
 ------------------
 	
