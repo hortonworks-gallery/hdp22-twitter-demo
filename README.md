@@ -245,7 +245,7 @@ storm kill Twittertopology
 - Open the new Storm View and check the statistics for each Bolt: 'Acked' columns should start increasing.
 ![Image](../master/screenshots/Storm-view-screenshot.png?raw=true)
 
-  - It also allows you to rebalance the topology
+- The Storm view also allows you to rebalance the topology:
 ![Image](../master/screenshots/Screenshot-storm-view-rebalance-screenshot.png?raw=true)  
 
 - The statistics also available via the Storm view 
