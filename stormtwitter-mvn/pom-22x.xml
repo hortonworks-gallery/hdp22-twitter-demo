@@ -8,24 +8,22 @@
 	<name>storm-streaming</name>
 	<url>http://maven.apache.org</url>
 
-      <properties>
-                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <spring.version>2.5.6</spring.version>
-                <hadoop.version>2.7.1.2.3.0.0-2557</hadoop.version>
-                <storm.version>0.10.0.2.3.0.0-2557</storm.version>
-                <storm.kafka.version>0.10.0.2.3.0.0-2557</storm.kafka.version>
-                <storm.hdfs.version>0.10.0.2.3.0.0-2557</storm.hdfs.version>
-                <hbase.version>1.1.1.2.3.0.0-2557</hbase.version>
-                <hive.version>1.2.1.2.3.0.0-2557</hive.version>
-                <phoenix.version>4.4.0.2.3.0.0-2557</phoenix.version>
-                <kafka.version>0.8.2.2.3.0.0-2557</kafka.version>                
-                <!-- <solr.version>4.10.2</solr.version> -->
-                <ranger_solrj.version>0.5.0.2.3.0.0-2557</ranger_solrj.version>
-                <junit.version>4.5</junit.version>
-                <mail.version>1.4.3</mail.version>
-                <log4j.version>1.2.17</log4j.version>
-       </properties>
-
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>2.5.6</spring.version>
+		<hadoop.version>2.6.0.2.2.0.0-2041</hadoop.version>
+		<storm.version>0.9.3.2.2.0.0-2041</storm.version>
+		<storm.kafka.version>0.9.3.2.2.0.0-2041</storm.kafka.version>
+		<storm.hdfs.version>0.9.3.2.2.0.0-2041</storm.hdfs.version>
+		<hbase.version>0.98.4.2.2.0.0-2041-hadoop2</hbase.version>
+		<active.mq.version>5.7.0</active.mq.version>
+		<truck.topology.domain.version>1.0.0-SNAPSHOT</truck.topology.domain.version>
+		<junit.version>4.5</junit.version>
+		<mail.version>1.4.3</mail.version>
+		<log4j.version>1.2.17</log4j.version>
+		<hive.version>0.14.0.2.2.0.0-2041</hive.version>
+		<!-- <spark.version>1.2.0</spark.version> -->
+	</properties>
 
 	<repositories>
 		<repository>
@@ -38,15 +36,11 @@
 		</repository>
 		<repository>
 			<id>hortonworks</id>
-			 <!-- <url>http://repo.hortonworks.com/content/repositories/releases/</url> -->
-			<!-- temporarily point to internal repo until mortbay jetty dependency is available on public repo-->
-			<url>http://nexus-private.hortonworks.com/nexus/content/groups/public/</url> 
+			<url>http://repo.hortonworks.com/content/repositories/releases/</url>
 		</repository>
 	</repositories>
 
 	<dependencies>
-
-
 
 		<dependency>
 			<groupId>xerces</groupId>
@@ -60,6 +54,12 @@
 		</dependency>
 
 
+		<!-- Topology Domain Objects -->
+		<!-- <dependency>
+			<groupId>poc.hortonworks.domain</groupId>
+			<artifactId>transport-domain</artifactId>
+			<version>${truck.topology.domain.version}</version>
+		</dependency> -->
 
 		<!-- Storm Dependencies -->
 		<dependency>
@@ -80,54 +80,40 @@
 		</dependency>
 
 
-
-		<!-- SolrJ from Ranger -->
 		<dependency>
-		  <groupId>org.apache.ranger</groupId>
-		  <artifactId>ranger_solrj</artifactId>
-		  <version>${ranger_solrj.version}</version>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.10</artifactId>
+			<version>0.8.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>4.7.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.zookeeper</groupId>
                     <artifactId>zookeeper</artifactId>
                 </exclusion>
-                <exclusion>
-                      <groupId>log4j</groupId>
-                      <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-simple</artifactId>
-                </exclusion>
             </exclusions>
-		</dependency>
-
-
+        </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.3.1</version>
-        </dependency> 
-       
- 
-		<dependency>
-			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka_2.10</artifactId>
-			<version>${kafka.version}</version>
-                <exclusions>
-
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>log4j-over-slf4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                </exclusions>
-		</dependency>		           
-		
-		<!-- Storm Kafka Dependencies -->		
+        </dependency>
+                
+		<!-- Storm Kafka Dependencies -->
     <dependency>
     	<groupId>org.apache.storm</groupId>
         <artifactId>storm-kafka</artifactId>
@@ -147,7 +133,7 @@
 		<dependency>
 			<groupId>org.apache.phoenix</groupId>
 			<artifactId>phoenix-core</artifactId>
-			<version>${phoenix.version}</version>
+			<version>4.2.0.2.2.0.0-2041</version>
 			<exclusions>
                                 <exclusion>
                                         <groupId>org.slf4j</groupId>
@@ -252,6 +238,11 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${active.mq.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -260,14 +251,6 @@
 		</dependency>
 
 		<!-- End of Other -->
-
-		<!-- Jetty Dependencies: added in 2.3 -->                                                                                                      
-        <dependency>                                                                                                                           
-            <groupId>org.mortbay.jetty</groupId>                                                                                                
-            <artifactId>jetty</artifactId>                                                                                               
-            <version>6.1.26</version>                                                                                          
-        </dependency>
-
 
 		<!-- Test -->
 		<dependency>
@@ -342,7 +325,5 @@
 
 	</build>
 </project>
-
-
 
 

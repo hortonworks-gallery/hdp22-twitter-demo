@@ -30,14 +30,14 @@ Listen for Twitter streams related to S&P 500 companies
 
 - Demo setup:
 	- Either download and start prebuilt VM
-	- Start HDP 2.3 sandbox and run provided scripts to setup demo 
+	- Start HDP 2.2.4 sandbox and run provided scripts to setup demo 
 
 ------------------
 	
 #### Contents
 
-1. [Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-23-sandbox)
-2. [Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
+1. [Option 1: Setup demo using prebuilt VM based on HDP 2.2.4.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-2242-sandbox)
+2. [Option 2: Setup demo via scripts on vanilla HDP 2.2.4.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-2242-sandbox)
 3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 4. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
 5. [Stop demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#to-stop-collecting-tweets)
@@ -51,9 +51,9 @@ Listen for Twitter streams related to S&P 500 companies
 
 ---------------------
  
-#### Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox - WIP
+#### Option 1: Setup demo using prebuilt VM based on HDP 2.2.4.2 sandbox
 
-- Download VM from [here](). Import it into VMWare Fusion and start it up. 
+- Download VM from [here](https://www.dropbox.com/s/2ld0aoqo35su0sa/Sandbox_HDP_2.2.4.2_VMWare_twitter.ova?dl=0). Import it into VMWare Fusion and start it up. 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
@@ -82,11 +82,11 @@ cd /root/hdp22-twitter-demo
 -------------------------
 
 
-#### Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox
+#### Option 2: Setup demo via scripts on vanilla HDP 2.2.4.2 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
 
-- Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Download HDP 2.2.4.2 sandbox VM image from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
@@ -110,6 +110,11 @@ oauth.consumerKey=
 oauth.consumerSecret=
 oauth.accessToken=
 oauth.accessTokenSecret=
+```
+
+- Copy over the 2.2 version of the pom file
+```
+mv /root/hdp22-twitter-demo/stormtwitter-mvn/pom-22x.xml /root/hdp22-twitter-demo/stormtwitter-mvn/pom.xml
 ```
 
 - Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
@@ -150,6 +155,12 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #####  Run Twitter demo 
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
+
+- **Use the 2.2 version of the pom file**
+```
+mv /root/hdp22-twitter-demo/stormtwitter-mvn/pom-22x.xml /root/hdp22-twitter-demo/stormtwitter-mvn/pom.xml
+```
+
 
 - (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
