@@ -242,9 +242,13 @@ storm kill Twittertopology
 #### Observe results
 
 
+- Open the new Storm View and check the statistics for each Bolt: 'Acked' columns should start increasing.
+![Image](../master/screenshots/Storm-view-screenshot.png?raw=true)
 
-- Open storm UI and drill into it to view statistics for each Bolt, 
-'Acked' columns should start increasing
+  - It also allows you to rebalance the topology
+![Image](../master/screenshots/Screenshot-storm-view-rebalance-screenshot.png?raw=true)  
+
+- The statistics also available via the Storm view 
 http://sandbox.hortonworks.com:8744/
 
 - Open Files view and see the tweets getting stored:
