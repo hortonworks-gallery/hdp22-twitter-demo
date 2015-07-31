@@ -32,7 +32,7 @@ import java.text.SimpleDateFormat;
 
 public class SolrBolt extends BaseBasicBolt {
 
-	private SolrServer server = null;
+	private HttpSolrServer server = null;
 
 	private static Driver phoenixDriver = new PhoenixDriver();
 	Connection conn = null;
@@ -64,8 +64,6 @@ public class SolrBolt extends BaseBasicBolt {
 
 
 		Date  d=new Date(created);
-		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z+9HOUR'");
-		//SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z-4HOUR'");
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		created = formatter.format(d);
