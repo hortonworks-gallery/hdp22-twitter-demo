@@ -81,7 +81,11 @@ echo "Creating dictionary..."
 /root/hdp22-twitter-demo/dictionary/run_createdictionary.sh > /root/hdp22-twitter-demo/logs/run_createdictionary.log
 
 echo "Creating /tweets/staging HDFS dir"
-sudo -u hdfs hadoop fs -rm -R /tweets
+
+if  hadoop fs -stat /tweets
+then
+   sudo -u hdfs hadoop fs -rm -R /tweets
+fi
 sudo -u hdfs hadoop fs -mkdir /tweets
 sudo -u hdfs hadoop fs -chmod 777 /tweets
 sudo -u hdfs hadoop fs -mkdir /tweets/staging
