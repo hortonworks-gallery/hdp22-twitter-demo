@@ -31,6 +31,7 @@ Listen for Twitter streams related to S&P 500 companies
 - Demo setup:
 	- Either download and start prebuilt VM
 	- Start HDP 2.3 sandbox and run provided scripts to setup demo 
+	- For HDP 2.2 version of instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
 
 ------------------
 	
@@ -98,7 +99,7 @@ ssh root@sandbox.hortonworks.com
 
 - Pull latest code/scripts
 ```
-git clone https://github.com/abajwa-hw/hdp22-twitter-demo.git	
+git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
     
 - Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
