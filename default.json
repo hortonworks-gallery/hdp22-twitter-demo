@@ -77,11 +77,11 @@
             "1y",
             "5y"
           ],
-          "timespan": "1h",
+          "timespan": "15m",
           "timefield": "createdAt_dt",
           "timeformat": "",
           "refresh": {
-            "enable": false,
+            "enable": true,
             "interval": 3,
             "min": 1
           },
