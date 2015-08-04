@@ -656,11 +656,12 @@
             "basic_query": "q=*%3A*&df=id&fq=createdAt_dt:[NOW/HOUR-1HOUR%20TO%20NOW/HOUR%2B1HOUR]",
             "custom": "&fq=doctype_s:tweet"
           },
-          "size": 10,
+          "size": 100,
           "pages": 5,
           "offset": 0,
           "sort": [
-            "createdAt_dt"
+            "createdAt_dt",
+            "desc"
           ],
           "group": "default",
           "style": {
