@@ -368,6 +368,9 @@ vi /tmp/Tweets.xls
 
 #### Access Ranger audits dashboard
 
+- Open Hive view and query the tweets table:
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-hive-query.png?raw=true)
+
 - Open the Ranger Audits dashboard at http://sandbox.hortonworks.com:6083/banana
 
 - By default you will see a visualization of both HBase/Hive reads/gets:
@@ -375,9 +378,6 @@ vi /tmp/Tweets.xls
 
 - Change the query filter to "action:write" to search for writes/puts:
 ![Image](../master/screenshots/twitter-ranger-audit-writes.png?raw=true)
-
-- Now open Hive view and query the tweets table:
-![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-hive-query.png?raw=true)
 
 - On the Ranger audits dashboard, query for Hive audits:
 ![Image](https://github.com/abajwa-hw/iotdemo-service/blob/master/screenshots/iot-rangeraudit-hive.png?raw=true)
