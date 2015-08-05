@@ -25,6 +25,9 @@ Listen for Twitter streams related to S&P 500 companies
   - Hive (for interactive query) 
   - HBase (for realtime alerts)
   - Solr/Banana (for search and reports/dashboards)
+  - Audits in Ranger/Solr/Banana
+  - Authorization policies in Ranger
+  
 - Refine:
   -  Update threshold values based on historical analysis of tweet volumes
 
@@ -149,6 +152,74 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #delete topic
 /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
 ```
+-------------------------------
+
+##### (Optional): Setup Ranger audits in Solr and Silk dashboard
+
+- Sandbox comes with Ranger installed. You can use the below steps to setup Hbase/Hive audits to Solr and setup Silk (banana) dashboard to visualize these
+
+- Setup Solr and Banana and 'Ranger Audits' dashboard
+```
+#setup on hdp_search
+
+cd /usr/local/
+sudo wget https://github.com/abajwa-hw/security-workshops/raw/master/scripts/ranger_solr_setup.zip
+sudo unzip ranger_solr_setup.zip
+sudo rm -rf __MACOSX
+cd ranger_solr_setup
+vi install.properties   
+
+#change below in install.properties to use HDP search setup instead of installing Solr
+SOLR_INSTALL=false
+SOLR_INSTALL_FOLDER=/opt/lucidworks-hdpsearch/solr
+SOLR_RANGER_HOME=/opt/lucidworks-hdpsearch/solr/ranger_audit_server
+SOLR_RANGER_DATA_FOLDER=/opt/lucidworks-hdpsearch/solr/ranger_audit_server/data
+
+./setup.sh  
+cd /opt
+cd lucidworks-hdpsearch/solr/
+mkdir /opt/banana-ranger
+cd /opt/banana-ranger
+sudo git clone https://github.com/LucidWorks/banana.git
+sudo mv banana latest
+cd latest/
+sudo sed -i 's/logstash_logs/ranger_audits/g' src/config.js
+sudo wget https://raw.githubusercontent.com/abajwa-hw/security-workshops/master/scripts/default.json -O src/app/dashboards/default.json
+mkdir build
+sudo ant
+cp /opt/banana-ranger/latest/build/banana-0.war /opt/lucidworks-hdpsearch/solr/server/webapps/banana.war
+cp /opt/banana-ranger/latest/jetty-contexts/banana-context.xml /opt/lucidworks-hdpsearch/solr/server/contexts/
+/opt/lucidworks-hdpsearch/solr/ranger_audit_server/scripts/start_solr.sh
+```
+
+  - Solr UI should be available at http://(your hostname):6083/solr/#/ranger_audits e.g. http://sandbox.hortonworks.com:6083/solr/#/ranger_audits 
+  - An Empty Banana dashboard should be available at http://(your hostname):6083/banana e.g. http://sandbox.hortonworks.com:6083/banana. 
+
+- Setup HBase Ranger plugin to audit to Solr
+
+```
+cd /usr/hdp/2.*/ranger-hbase-plugin/       
+vi /usr/hdp/2.*/ranger-hbase-plugin/install.properties
+XAAUDIT.SOLR.IS_ENABLED=true
+XAAUDIT.SOLR.SOLR_URL=http://sandbox.hortonworks.com:6083/solr/ranger_audits
+
+./enable-hbase-plugin.sh
+```
+
+- Setup Hive Ranger plugin to audit to Solr
+```
+cd /usr/hdp/2.*/ranger-hive-plugin/       
+vi /usr/hdp/2.*/ranger-hive-plugin/install.properties
+XAAUDIT.SOLR.IS_ENABLED=true
+XAAUDIT.SOLR.SOLR_URL=http://sandbox.hortonworks.com:6083/solr/ranger_audits
+
+./enable-hive-plugin.sh
+```
+
+- Now retart HBase and Hive to register the plugins.
+
+
+
 -------------------------------
 
 #####  Run Twitter demo 
