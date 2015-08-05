@@ -176,8 +176,6 @@ SOLR_RANGER_HOME=/opt/lucidworks-hdpsearch/solr/ranger_audit_server
 SOLR_RANGER_DATA_FOLDER=/opt/lucidworks-hdpsearch/solr/ranger_audit_server/data
 
 ./setup.sh  
-cd /opt
-cd lucidworks-hdpsearch/solr/
 mkdir /opt/banana-ranger
 cd /opt/banana-ranger
 sudo git clone https://github.com/LucidWorks/banana.git
@@ -186,6 +184,7 @@ cd latest/
 sudo sed -i 's/logstash_logs/ranger_audits/g' src/config.js
 sudo wget https://raw.githubusercontent.com/abajwa-hw/security-workshops/master/scripts/default.json -O src/app/dashboards/default.json
 mkdir build
+yum install -y ant
 sudo ant
 cp /opt/banana-ranger/latest/build/banana-0.war /opt/lucidworks-hdpsearch/solr/server/webapps/banana.war
 cp /opt/banana-ranger/latest/jetty-contexts/banana-context.xml /opt/lucidworks-hdpsearch/solr/server/contexts/
