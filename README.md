@@ -366,6 +366,40 @@ select * from alerts
 vi /tmp/Tweets.xls
 ```
 
+#### Access Ranger audits dashboard
+
+- Open the Ranger Audits dashboard at http://sandbox.hortonworks.com:6083/banana
+
+- By default you will see a visualization of both HBase/Hive reads/gets:
+![Image](../master/screenshots/twitter-ranger-audit-reads.png?raw=true)
+
+- Change the query filter to "action:write" to search for writes/puts:
+![Image](../master/screenshots/twitter-ranger-audit-writes.png?raw=true)
+
+- Now open Hive view and query the tweets table:
+![Image](../master/screenshots/iot-hive-query.png?raw=true)
+
+- On the Ranger audits dashboard, query for Hive audits:
+![Image](../master/screenshots/iot-rangeraudit-hive.png?raw=true)
+
+- Now disable the global allow policy on Hbase and Hive and wait 30s:
+![Image](../master/screenshots/iot-disable-hbasepolicy.png?raw=true)
+![Image](../master/screenshots/iot-disable-hivepolicy.png?raw=true)
+
+- Try running the same query in Hive view
+
+- At this point, you should should see some Hbase audit records with result=0
+![Image](../master/screenshots/iot-rangeraudit-hbase-rejection.png?raw=true)
+![Image](../master/screenshots/iot-rangeraudit-hive-rejection.png?raw=true)
+
+- Confirm the same by opening the Audit tab of Ranger: http://sandbox.hortonworks.com:6080
+
+![Image](../master/screenshots/iot-ranger-hbase-rejection.png?raw=true)
+![Image](../master/screenshots/iot-ranger-hive-rejection.png?raw=true)
+
+- Re-enable the global allow policies.
+
+
 
 
 #### Use Zeppelin to create charts to analyze tweets
