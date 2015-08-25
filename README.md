@@ -138,21 +138,25 @@ ps -ef | grep kafka
 nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/kafka-broker/config/server.properties &
 
 #create topic
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper $(hostname -f):2181 --replication-factor 1 --partitions 1 --topic test
 
 #list topic
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper localhost:2181 --list | grep test
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $(hostname -f):2181 --list | grep test
 
 #start a producer and enter text on few lines
-/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list localhost:6667 --topic test
+/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $(hostname -f):6667 --topic test
 
 #start a consumer in a new terminal your text appears in the consumer
-/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $(hostname -f):2181 --topic test --from-beginning
 
-#delete topic
-/usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
+#hit Control-C on both terminals to quit the consumer/producer
+
+#delete topic (only works if delete.topic.enable is set to true in Ambari > Kafka > Config)
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --zookeeper $(hostname -f):2181 --topic test
 ```
+
 -------------------------------
+
 
 ##### (Optional): Setup Ranger audits in Solr and Silk dashboard
 
