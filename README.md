@@ -168,6 +168,10 @@ cd
 wget https://github.com/abajwa-hw/security-workshops/raw/master/scripts/setup_solr_banana.sh
 chmod +x setup_solr_banana.sh
 
+# assuming you already created a /etc/hosts entry for sandbox.hortonworks.com on your local laptop, just run below
+./setup_solr_banana.sh
+
+# otherwise, pass in appropriate argument as described below
 ./setup_solr_banana.sh <arguments>
 ```
     - argument options:
