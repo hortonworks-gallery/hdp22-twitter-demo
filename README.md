@@ -162,7 +162,7 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 
 - Sandbox comes with Ranger installed. You can use the below steps to setup Hbase/Hive audits to Solr and setup Silk (banana) dashboard to visualize these
 
-- Setup Solr and Banana and 'Ranger Audits' dashboard using HDP search (Solr 5.2)
+- Setup Solr and Banana and 'Ranger Audits' dashboard using HDP search (Solr 5.2) - note this will install a view and restart Ambari
 ```
 cd
 wget https://github.com/abajwa-hw/security-workshops/raw/master/scripts/setup_solr_banana.sh
@@ -173,6 +173,9 @@ chmod +x setup_solr_banana.sh
 
 # otherwise, pass in appropriate argument as described below
 ./setup_solr_banana.sh <arguments>
+
+#on sandbox
+service ambari start
 ```
     - argument options:
       - if no arguments passed, FQDN will be used as hostname to setup dashboard/view (use this if you have created local hosts entry for host where Solr will run e.g. sandbox.hortonworks.com)
