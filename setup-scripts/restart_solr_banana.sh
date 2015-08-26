@@ -18,3 +18,7 @@ nohup java -jar /opt/solr/latest/hdp/start.jar -Djetty.home=/opt/solr/latest/hdp
 sleep 30
 curl "http://localhost:8983/solr/admin/cores?action=CREATE&name=tweets&instanceDir=/opt/solr/latest/hdp/solr/tweets"
 
+if [ -f /opt/lucidworks-hdpsearch/solr/ranger_audit_server/scripts/start_solr.sh ]
+then
+    /opt/lucidworks-hdpsearch/solr/ranger_audit_server/scripts/start_solr.sh
+fi
