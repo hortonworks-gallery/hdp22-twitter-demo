@@ -274,14 +274,19 @@ cd /root/hdp22-twitter-demo
 ./start-demo.sh
 #once storm topology is submitted, press control-C
 ```
+  - (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
+  ```
+  cd /root/hdp22-twitter-demo/stormtwitter-mvn
+  ./runtopology.sh runOnCluster clean
+  ./runtopology.sh runLocally skipclean
+  ```
 
-- (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
-```
-cd /root/hdp22-twitter-demo/stormtwitter-mvn
-./runtopology.sh runOnCluster clean
-./runtopology.sh runLocally skipclean
-```
-
+  - If you see errors like below, double check in Ambari that Storm is still up
+  ```
+  Caused by: java.net.ConnectException: Connection refused
+  Could not find leader nimbus from seed hosts [sandbox.hortonworks.com]. Did you specify a valid list of nimbus hosts for config nimbus.seeds
+  ```
+  
 - open storm UI and confirm topology was created using either:
   - Storm WebUI: http://sandbox.hortonworks.com:8744/
   - Storm View: http://sandbox.hortonworks.com:8080/#/main/views/Storm_Monitoring/0.1.0/Storm
