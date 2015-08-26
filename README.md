@@ -95,6 +95,7 @@ cd /root/hdp22-twitter-demo
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
 
 - Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
