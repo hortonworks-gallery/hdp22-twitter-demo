@@ -377,10 +377,11 @@ select * from alerts
 vi /tmp/Tweets.xls
 ```
 
-#### Access Ranger audits dashboard
-
 - Open Hive view and query the tweets table:
 ![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-hive-query.png?raw=true)
+
+
+#### Access Ranger audits dashboard
 
 - Open the Ranger Audits dashboard at http://sandbox.hortonworks.com:6083/banana
 
