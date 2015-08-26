@@ -164,7 +164,7 @@ cd /root/hdp22-twitter-demo
 - Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
   - Install the service and restart Ambari using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service)
   - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
-  - Import code into Eclipse using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
+  - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
   - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
     - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
     - TwitterScheme.java: defines structure of a Tweet
