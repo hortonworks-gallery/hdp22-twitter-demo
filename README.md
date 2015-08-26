@@ -177,7 +177,7 @@ cd /root/hdp22-twitter-demo
 
 - Sandbox comes with Ranger installed. You can use the below steps to setup Hbase/Hive audits to Solr and setup Silk (banana) dashboard to visualize these
 
-- Setup Solr and Banana and 'Ranger Audits' dashboard using HDP search (Solr 5.2) - note this will install a view and restart Ambari
+- Setup Solr and Banana and 'Ranger Audits' dashboard using HDP search (Solr 5.2) - *note this will install a view and restart Ambari*
 ```
 cd
 wget https://github.com/abajwa-hw/security-workshops/raw/master/scripts/setup_solr_banana.sh
