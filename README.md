@@ -185,6 +185,10 @@ service ambari start
 
   - Solr UI should be available at http://(your hostname):6083/solr/#/ranger_audits e.g. http://sandbox.hortonworks.com:6083/solr/#/ranger_audits 
   - An Empty Banana dashboard should be available at http://(your hostname):6083/banana e.g. http://sandbox.hortonworks.com:6083/banana. 
+  - To manually start this Solr instance (e.g. after reboot) use below:
+  ```
+  /opt/lucidworks-hdpsearch/solr/ranger_audit_server/scripts/start_solr.sh
+  ```  
 
 - Setup HBase Ranger plugin to audit to Solr
 
