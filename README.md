@@ -281,8 +281,9 @@ cd /root/hdp22-twitter-demo/stormtwitter-mvn
 ./runtopology.sh runLocally skipclean
 ```
 
-- open storm UI and confirm topology was created
-http://sandbox.hortonworks.com:8744/
+- open storm UI and confirm topology was created using either:
+  - Storm WebUI: http://sandbox.hortonworks.com:8744/
+  - Storm View: http://sandbox.hortonworks.com:8080/#/main/views/Storm_Monitoring/0.1.0/Storm
 
 - **Start Kafka producer**: In a new terminal, compile and run kafka producer to start producing tweets containing first 400 stock symbols values from csv
 ```
