@@ -337,12 +337,12 @@ storm kill Twittertopology
 http://sandbox.hortonworks.com:8744/
 
 - Open Files view and see the tweets getting stored:
-http://sandbox.hortonworks.com:8080/#/main/views/FILES/0.1.0/MyFiles
+http://sandbox.hortonworks.com:8080/#/main/views/FILES/1.0.0/Files
 
 ![Image](../master/screenshots/Files-view.png?raw=true)
 
 - Open Hive table via Hive view. Notice tweets appear in the Hive table that was created:
-http://sandbox.hortonworks.com:8080/#/main/views/HIVE/0.2.0/MyHive
+http://sandbox.hortonworks.com:8080/#/main/views/HIVE/1.0.0/Hive
 
 ![Image](../master/screenshots/Hive-view.png?raw=true)
 
