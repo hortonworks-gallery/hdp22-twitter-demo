@@ -334,7 +334,7 @@ storm kill Twittertopology
 - The Storm view also allows you to rebalance the topology:
 ![Image](../master/screenshots/Screenshot-storm-view-rebalance-screenshot.png?raw=true)  
 
-- The statistics also available via the Storm view 
+- The statistics also available via the Storm UI 
 http://sandbox.hortonworks.com:8744/
 
 - Open Files view and see the tweets getting stored:
