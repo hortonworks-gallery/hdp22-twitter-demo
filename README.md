@@ -103,31 +103,6 @@ These setup steps are only needed first time and may take upto 30min to execute 
 ssh root@sandbox.hortonworks.com
 ```
 
-- Pull latest code/scripts
-```
-git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
-```
-    
-- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
-https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
-- Then enter the 4 values into the file below in the sandbox
-```
-vi /root/hdp22-twitter-demo/kafkaproducer/twitter4j.properties
-oauth.consumerKey=
-oauth.consumerSecret=
-oauth.accessToken=
-oauth.accessTokenSecret=
-```
-
-- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
-```
-cd /root/hdp22-twitter-demo
-./setup-demo.sh
-```
-
-------------------
-
-
 ##### Kafka basics - (optional)
 
 ```
@@ -157,6 +132,44 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 
 -------------------------------
 
+
+- Pull latest code/scripts
+```
+git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
+```
+    
+- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
+https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
+- Then enter the 4 values into the file below in the sandbox
+```
+vi /root/hdp22-twitter-demo/kafkaproducer/twitter4j.properties
+oauth.consumerKey=
+oauth.consumerSecret=
+oauth.accessToken=
+oauth.accessTokenSecret=
+```
+
+- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
+```
+cd /root/hdp22-twitter-demo
+./setup-demo.sh
+```
+
+------------------
+
+##### (Optional): Setup VNC/Eclipse on your sandbox
+
+- Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
+  - Install the service using steps https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service
+  - Connect to VNC from local laptop: https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server
+  - Import code into Eclipse: https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment
+  - Review code under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
+    - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
+    - TwitterScheme.java: defines structure of a Tweet
+    - SolrBolt.java: writes to Solr
+    - TwitterRuleBolt.java: defines business logic of when a tweet should results in an alert
+
+------------------
 
 ##### (Optional): Setup Ranger audits in Solr and Silk dashboard
 
