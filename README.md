@@ -348,7 +348,7 @@ http://sandbox.hortonworks.com:8080/#/main/views/HIVE/0.2.0/MyHive
 
 - Open Banana UI and view/search tweet summary and alerts:
 http://sandbox.hortonworks.com:8983/banana
-
+  - You can also access the UI via Ambari view by following steps [here](https://github.com/hortonworks-gallery/ambari-iframe-view) and replacing the url with http://sandbox.hortonworks.com:8983/banana
 ![Image](../master/screenshots/Banana-view-updated.png?raw=true)
 
   - For more details on the Banana dashboard panels are built, refer to the underlying [json](https://github.com/abajwa-hw/hdp22-twitter-demo/blob/master/default.json) file that defines all the panels 
