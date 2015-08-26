@@ -149,7 +149,8 @@ oauth.accessToken=
 oauth.accessTokenSecret=
 ```
 
-- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
+- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
+  - This may take 10 min so you can kickoff the VNC service install first (if needed), before starting the setup-demo.sh
 ```
 cd /root/hdp22-twitter-demo
 ./setup-demo.sh
@@ -160,10 +161,10 @@ cd /root/hdp22-twitter-demo
 ##### (Optional): Setup VNC/Eclipse on your sandbox
 
 - Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
-  - Install the service using steps https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service
+  - Install the service and restart Ambari following: https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service
   - Connect to VNC from local laptop: https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server
   - Import code into Eclipse: https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment
-  - Review code under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
+  - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
     - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
     - TwitterScheme.java: defines structure of a Tweet
     - SolrBolt.java: writes to Solr
