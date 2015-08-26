@@ -99,7 +99,7 @@ These setup steps are only needed first time and may take upto 30min to execute 
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
 ```
-- Connect to the VM via SSH (password hadoop)
+- Connect to the VM via SSH (password hadoop). You can also SSH via browser by clicking: http://sandbox.hortonworks.com:4200
 ```
 ssh root@sandbox.hortonworks.com
 ```
@@ -134,12 +134,12 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 -------------------------------
 
 
-- Pull latest code/scripts
+- **Download code**
 ```
 git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
     
-- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
+- **Setup Twitter credentials**:Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
 - Then enter the 4 values into the file below in the sandbox
 ```
@@ -150,7 +150,7 @@ oauth.accessToken=
 oauth.accessTokenSecret=
 ```
 
-- Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
+- **Setup demo**:Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
   - This may take 10 min so you can kickoff the VNC service install first (if needed), before starting the setup-demo.sh
 ```
 cd /root/hdp22-twitter-demo
