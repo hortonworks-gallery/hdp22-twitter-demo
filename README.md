@@ -93,6 +93,7 @@ cd /root/hdp22-twitter-demo
 #### Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
+  - While waiting on any step, if you don't already have Twitter credentials, follow steps here
 
 - Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
@@ -104,6 +105,20 @@ These setup steps are only needed first time and may take upto 30min to execute 
 ```
 ssh root@sandbox.hortonworks.com
 ```
+
+- **Download code** as root user
+```
+cd
+git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
+```
+
+- **Setup demo**:Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
+  - This may take 10 min so you can kickoff the VNC service install first (if needed), before starting the setup-demo.sh
+```
+cd /root/hdp22-twitter-demo
+./setup-demo.sh
+```
+--------------
 
 ##### Kafka basics
 
@@ -132,15 +147,6 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --zookeeper $(hostname -f):2181 --topic test
 ```
 
--------------------------------
-
-
-- **Download code** as root user
-```
-cd
-git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
-```
-
 ------------------
 
 ##### Setup VNC/Eclipse on your sandbox
@@ -157,7 +163,9 @@ git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git
 
 -------------------
     
-- **Setup Twitter credentials**:Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
+##### Setup Twitter credentials
+
+- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
 - Then enter the 4 values into the file below in the sandbox
 ```
@@ -167,14 +175,6 @@ oauth.consumerSecret=
 oauth.accessToken=
 oauth.accessTokenSecret=
 ```
-
-- **Setup demo**:Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
-  - This may take 10 min so you can kickoff the VNC service install first (if needed), before starting the setup-demo.sh
-```
-cd /root/hdp22-twitter-demo
-./setup-demo.sh
-```
-
 
 ------------------
 
