@@ -137,7 +137,7 @@ cd /root/hdp22-twitter-demo
     - You can access this via http://sandbox.hortonworks.com:8080/#/main/admin/stack/services
   - Deploy the service by selecting:
     - VNC Server -> Add service -> Next -> Next -> Enter password (e.g. hadoop) -> Next -> Proceed Anyway -> Deploy 
-  - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
+  - Connect to VNC from local laptop using a VNC viewer software (e.g. Tight VNC viewer or Chicken of the VNC or just your browser). Detailed steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
   - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
   - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
     - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
