@@ -133,7 +133,8 @@ cd /root/hdp22-twitter-demo
 - Once the status of HDFS/YARN has changed from a yellow question mark to a green check mark...
 
 - Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
-  - In Ambari open, Admin > Stacks and Services tab. You can access this via http://sandbox.hortonworks.com:8080/#/main/admin/stack/services
+  - In Ambari open, Admin > Stacks and Services tab. 
+    - You can access this via http://sandbox.hortonworks.com:8080/#/main/admin/stack/services
   - VNC Server -> Add service -> Next -> Next -> Enter password (e.g. hadoop) -> Next -> Proceed Anyway -> Deploy 
   - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
   - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
