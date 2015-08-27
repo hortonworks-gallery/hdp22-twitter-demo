@@ -93,7 +93,7 @@ cd /root/hdp22-twitter-demo
 #### Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
-  - While waiting on any step, if you don't already have Twitter credentials, follow steps here
+  - While waiting on any step, if you don't already have Twitter credentials, follow steps [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-twitter-credentials) to get them
 
 - Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
