@@ -164,6 +164,8 @@ oauth.accessTokenSecret=
     
 ##### Kafka basics
 
+- Once Kafka is started, run through the below commands to understand the basics
+
 ```
 #check if kafka already started
 ps -ef | grep kafka
