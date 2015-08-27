@@ -135,8 +135,9 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 -------------------------------
 
 
-- **Download code**
+- **Download code** as root user
 ```
+cd
 git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
     
