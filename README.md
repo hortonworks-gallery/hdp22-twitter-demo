@@ -112,14 +112,53 @@ cd
 git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
 
-- **Setup demo**:Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
-  - This may take 10 min so you can kickoff the VNC service install first (if needed), before starting the setup-demo.sh
+- Download Ambari service for VNC (details below)
+```
+VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
+sudo git clone https://github.com/hortonworks-gallery/ambari-vnc-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/VNCSERVER   
+service ambari restart
+```
+
+- **Setup demo**:Run below to setup demo (one time): it will start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
 ```
 cd /root/hdp22-twitter-demo
 ./setup-demo.sh
 ```
---------------
+  - while it runs, proceed with installing VNC service per steps below
 
+------------------
+
+##### Setup VNC/Eclipse on your sandbox
+
+- Once the status of HDFS/YARN has changed from a yellow question mark to a green check mark...
+
+- Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
+  - VNC Server -> Add service -> Next -> Next -> Enter password (e.g. hadoop) -> Next -> Proceed Anyway -> Deploy 
+  - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
+  - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
+  - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
+    - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
+    - TwitterScheme.java: defines structure of a Tweet
+    - SolrBolt.java: writes to Solr
+    - TwitterRuleBolt.java: defines business logic of when a tweet should results in an alert
+
+-------------------
+    
+##### Setup Twitter credentials
+
+- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
+https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
+- Then enter the 4 values into the file below in the sandbox
+```
+vi /root/hdp22-twitter-demo/kafkaproducer/twitter4j.properties
+oauth.consumerKey=
+oauth.consumerSecret=
+oauth.accessToken=
+oauth.accessTokenSecret=
+```
+    
+-------------------
+    
 ##### Kafka basics
 
 ```
@@ -145,35 +184,6 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 
 #delete topic (only works if delete.topic.enable is set to true in Ambari > Kafka > Config)
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --zookeeper $(hostname -f):2181 --topic test
-```
-
-------------------
-
-##### Setup VNC/Eclipse on your sandbox
-
-- Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
-  - Install the service and restart Ambari using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service)
-  - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
-  - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
-  - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
-    - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
-    - TwitterScheme.java: defines structure of a Tweet
-    - SolrBolt.java: writes to Solr
-    - TwitterRuleBolt.java: defines business logic of when a tweet should results in an alert
-
--------------------
-    
-##### Setup Twitter credentials
-
-- Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
-https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
-- Then enter the 4 values into the file below in the sandbox
-```
-vi /root/hdp22-twitter-demo/kafkaproducer/twitter4j.properties
-oauth.consumerKey=
-oauth.consumerSecret=
-oauth.accessToken=
-oauth.accessTokenSecret=
 ```
 
 ------------------
