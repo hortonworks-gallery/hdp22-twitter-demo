@@ -105,7 +105,7 @@ These setup steps are only needed first time and may take upto 30min to execute 
 ssh root@sandbox.hortonworks.com
 ```
 
-##### Kafka basics - (optional)
+##### Kafka basics
 
 ```
 #check if kafka already started
@@ -140,6 +140,22 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 cd
 git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
+
+------------------
+
+##### Setup VNC/Eclipse on your sandbox
+
+- Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
+  - Install the service and restart Ambari using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service)
+  - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
+  - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
+  - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
+    - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
+    - TwitterScheme.java: defines structure of a Tweet
+    - SolrBolt.java: writes to Solr
+    - TwitterRuleBolt.java: defines business logic of when a tweet should results in an alert
+
+-------------------
     
 - **Setup Twitter credentials**:Twitter4J requires you to have a Twitter account and obtain developer keys by registering an "app". Create a Twitter account and app and get your consumer key/token and access keys/tokens:
 https://apps.twitter.com > sign in > create new app > fill anything > create access tokens
@@ -159,19 +175,6 @@ cd /root/hdp22-twitter-demo
 ./setup-demo.sh
 ```
 
-------------------
-
-##### (Optional): Setup VNC/Eclipse on your sandbox
-
-- Setup Eclipse on the sandbox VM and remote desktop into it using an *Ambari service for VNC*
-  - Install the service and restart Ambari using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#setup-vnc-service)
-  - Connect to VNC from local laptop using steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#connect-to-vnc-server)
-  - Import code into Eclipse using "Getting started with Storm and Maven in Eclipse environment" steps [here](https://github.com/hortonworks-gallery/ambari-vnc-service#getting-started-with-storm-and-maven-in-eclipse-environment)
-  - Review Storm code in Eclipse under /root/hdp22-twitter-demo/stormtwitter-mvn/src/main/java/hellostorm:
-    - GNstorm.java: Main class, also where topology, KafkaSpout, HDFSBolts instatiated
-    - TwitterScheme.java: defines structure of a Tweet
-    - SolrBolt.java: writes to Solr
-    - TwitterRuleBolt.java: defines business logic of when a tweet should results in an alert
 
 ------------------
 
@@ -239,10 +242,10 @@ XAAUDIT.SOLR.SOLR_URL=http://sandbox.hortonworks.com:6083/solr/ranger_audits
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
 
-- (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
+- Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
 
-- (Optional) Generate securities csv from above page and review the securities.csv generated. The last field is the generated tweet volume threshold 
+- Generate securities csv from above page and review the securities.csv generated. The last field is the generated tweet volume threshold 
 ```
 /root/hdp22-twitter-demo/fetchSecuritiesList/rungeneratecsv.sh
 cat /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
@@ -254,7 +257,7 @@ sed -i '1i$HDP,Hortonworks,Technology,Technology,Santa Clara CA,0000000001,5' /r
 sed -i '1i#hadoopsummit,Hadoop Summit,Hadoop,Hadoop,Santa Clara CA,0000000001,5' /root/hdp22-twitter-demo/fetchSecuritiesList/securities.csv
 ```
 
-- (Optional) Open connection to HBase via Phoenix and check you can list tables. Notice securities data was imported and alerts table is empty
+- Open connection to HBase via Phoenix and check you can list tables. Notice securities data was imported and alerts table is empty
 ```
 /usr/hdp/current/phoenix-client/bin/sqlline.py  localhost:2181:/hbase-unsecure
 !tables
@@ -264,7 +267,7 @@ select * from dictionary;
 !q
 ```
 
-- (Optional) check Hive table schema where we will store the tweets for later analysis
+- check Hive table schema where we will store the tweets for later analysis
 ```
 hive -e 'desc tweets_text_partition'
 ```
