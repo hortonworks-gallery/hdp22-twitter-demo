@@ -114,7 +114,7 @@ public class FetchSecuritiesList {
 	}
 	
     public static void main(String[] args)  {
-		String url = "http://en.wikipedia.org/wiki/List_of_S%26P_500_companies";	
+		String url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies";	
 		String fileName = "securities.csv";
 		
 		System.out.println("Reading securities from: " + url);			
