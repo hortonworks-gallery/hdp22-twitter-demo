@@ -188,7 +188,7 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 
 #hit Control-C on both terminals to quit the consumer/producer
 
-#delete topic (only works if delete.topic.enable is set to true in Ambari > Kafka > Config)
+#delete topic (only works if delete.topic.enable and setup auto.create.topics.enable is set to true in Ambari > Kafka > Config)
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --zookeeper $(hostname -f):2181 --topic test
 ```
 
