@@ -117,6 +117,20 @@ oauth.accessTokenSecret=
 mv /root/hdp22-twitter-demo/stormtwitter-mvn/pom-22x.xml /root/hdp22-twitter-demo/stormtwitter-mvn/pom.xml
 ```
 
+To test whether maven can build the storm jar properly, you can run these commands:
+
+```
+cd /root/hdp22-twitter-demo/stormtwitter-mvn
+mvn clean package
+```
+
+Note: If you get errors with maven pulling all required dependencies (i.e. such as artifact 'phoenix-core'), you can add this repository reference within the <repositories> section of the 'pom.xml' file:
+
+                <repository>
+                        <id>spring-milestones</id>
+                        <url>http://repo.spring.io/libs-milestone/</url>
+                </repository>
+
 - Run below to setup demo (one time): start Ambari/HBase/Kafka/Storm and install maven, solr, banana -may take 10 min
 ```
 cd /root/hdp22-twitter-demo
@@ -155,6 +169,12 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #####  Run Twitter demo 
 
 Most of the below steps are optional as they were already executed by the setup script above but are useful to understand the components of the demo:
+
+- (Required) Create the kafka topic for twitter events with this command:
+
+```
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitter_events
+```
 
 - (Optional) Review the list of stock symbols whose Twitter mentiones we will be tracking
 http://en.wikipedia.org/wiki/List_of_S%26P_500_companies
