@@ -5,6 +5,7 @@
 
 mvn clean install
 
+
 #Possible values are "runLocally" to run topology locally or "runOnCluster" anything else to run on cluster
 STORMMODE=$1
 if [ "$STORMMODE" == "" ]
@@ -32,6 +33,7 @@ then
 	/root/hdp22-twitter-demo/reset-demo.sh
 fi
 echo "Starting toplogy ..."
-storm jar ./target/storm-streaming-1.0-SNAPSHOT.jar hellostorm.GNstorm $STORMMODE localhost
+host=$(hostname -f)
+storm jar ./target/storm-streaming-1.0-SNAPSHOT.jar hellostorm.GNstorm $STORMMODE $host
 
 
