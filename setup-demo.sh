@@ -80,7 +80,13 @@ echo "Creating Phoenix tables..."
 echo "Creating dictionary..."
 /root/hdp22-twitter-demo/dictionary/run_createdictionary.sh > /root/hdp22-twitter-demo/logs/run_createdictionary.log
 
-echo "Creating /tweets/staging HDFS dir"
+echo "Creating home and /tweets/staging HDFS dir"
+if ! hadoop fs -stat /user/root
+then
+   sudo -u hdfs hadoop fs -mkdir /user/root
+   sudo -u hdfs hadoop fs -chown root /user/root   
+fi
+
 
 if  hadoop fs -stat /tweets
 then
