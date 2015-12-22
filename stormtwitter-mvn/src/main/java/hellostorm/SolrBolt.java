@@ -87,6 +87,7 @@ public class SolrBolt extends BaseBasicBolt {
 		
 		try{
 			server.add(doc);
+            server.commit(false,false);
 			System.out.println("SolrBolt: successfully added tweet to Solr server");
 		} catch (Exception e) {
 			e.printStackTrace();
