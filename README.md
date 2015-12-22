@@ -33,7 +33,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 - Demo setup:
 	- Either download and start prebuilt VM
-	- Start HDP 2.3 sandbox and run provided scripts to setup demo 
+	- Start HDP 2.3.2 sandbox and run provided scripts to setup demo 
 
 - Previous versions	
 	- For HDP 2.2 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
@@ -44,7 +44,7 @@ Listen for Twitter streams related to S&P 500 companies
 #### Contents
 
 1. [Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-23-sandbox)
-2. [Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
+2. [Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
 3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 4. [Setup Eclipse](https://github.com/hortonworks-gallery/hdp22-twitter-demo#optional-setup-vnceclipse-on-your-sandbox)
 5. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
@@ -90,12 +90,12 @@ cd /root/hdp22-twitter-demo
 -------------------------
 
 
-#### Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox
+#### Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
   - While waiting on any step, if you don't already have Twitter credentials, follow steps [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-twitter-credentials) to get them
 
-- Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Download HDP 2.3.2 sandbox VM image file (Sandbox_HDP_2.3.2_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
