@@ -73,7 +73,7 @@ ssh root@sandbox.hortonworks.com
 - Start the demo by
 ```
 cd /root/hdp22-twitter-demo
-./start-demo.sh
+./start-demo-230.sh
 #once storm topology is submitted, press control-C
 
 #start kafka twitter producer
@@ -122,7 +122,7 @@ service ambari restart
 - **Setup demo**:Run below to setup demo (one time): it will start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
 ```
 cd /root/hdp22-twitter-demo
-./setup-demo.sh
+./setup-demo-230.sh
 ```
   - while it runs, proceed with installing VNC service per steps below
 
@@ -291,7 +291,7 @@ hive -e 'desc tweets_text_partition'
 - **Start Storm Twitter topology** to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
 ```
 cd /root/hdp22-twitter-demo
-./start-demo.sh
+./start-demo-230.sh
 #once storm topology is submitted, press control-C
 ```
   - (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
@@ -373,10 +373,10 @@ http://sandbox.hortonworks.com:8080/#/main/views/HIVE/1.0.0/Hive
 
 ![Image](../master/screenshots/Hive-view.png?raw=true)
 
-- Open Banana UI and view/search tweet summary and alerts: http://sandbox.hortonworks.com:8983/solr/banana/index.html
+- Open Banana UI and view/search tweet summary and alerts: http://sandbox.hortonworks.com:8983/banana
 ![Image](../master/screenshots/Banana-view-updated.png?raw=true)
 
-  - You can also access the UI via Ambari view by following steps [here](https://github.com/hortonworks-gallery/ambari-iframe-view) and replacing the url with http://sandbox.hortonworks.com:8983/solr/banana/index.html
+  - You can also access the UI via Ambari view by following steps [here](https://github.com/hortonworks-gallery/ambari-iframe-view) and replacing the url with http://sandbox.hortonworks.com:8983/banana
   - For more details on the Banana dashboard panels are built, refer to the underlying [json](https://github.com/abajwa-hw/hdp22-twitter-demo/blob/master/default.json) file that defines all the panels 
   - In case you don't see any tweets, try changing to a different timeframe on timeline (e.g. by clicking 24 hours, 7 days etc). If there is a time mismatch between the VM and your machine, the tweets may appear at a different place on the timeline than expected.
  
