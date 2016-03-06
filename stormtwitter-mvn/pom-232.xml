@@ -9,21 +9,23 @@
 	<url>http://maven.apache.org</url>
 
       <properties>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>      
-        	<hadoop.version>2.7.1.2.4.0.0-169</hadoop.version>
-        	<spring.version>2.5.6</spring.version>
-     	  	<storm.version>0.10.0.2.4.0.0-169</storm.version>
-       	 	<storm.kafka.version>0.10.0.2.4.0.0-169</storm.kafka.version>
-       	 	<storm.hdfs.version>0.10.0.2.4.0.0-169</storm.hdfs.version>
-       	 	<hbase.version>1.1.2.2.4.0.0-169</hbase.version>
-       	 	<hive.version>1.2.1000.2.4.0.0-169</hive.version>
-        	<phoenix.version>4.4.0.2.4.0.0-169</phoenix.version>
-       	 	<kafka.version>0.9.0.2.4.0.0-169</kafka.version>       	      
-            <ranger_solrj.version>0.5.0.2.4.0.0-169</ranger_solrj.version>
-            <junit.version>4.5</junit.version>
-            <mail.version>1.4.3</mail.version>
-            <log4j.version>1.2.17</log4j.version>            
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <spring.version>2.5.6</spring.version>
+                <hadoop.version>2.7.1.2.3.2.0-2950</hadoop.version>
+                <storm.version>0.10.0.2.3.2.0-2950</storm.version>
+                <storm.kafka.version>0.10.0.2.3.2.0-2950</storm.kafka.version>
+                <storm.hdfs.version>0.10.0.2.3.2.0-2950</storm.hdfs.version>
+                <hbase.version>1.1.2.2.3.2.0-2950</hbase.version>
+                <hive.version>1.2.1.2.3.2.0-2950</hive.version>
+                <phoenix.version>4.4.0.2.3.2.0-2950</phoenix.version>
+                <kafka.version>0.8.2.2.3.2.0-2950</kafka.version>
+                <!-- <solr.version>4.10.2</solr.version> -->
+                <ranger_solrj.version>0.5.0.2.3.2.0-2950</ranger_solrj.version>
+                <junit.version>4.5</junit.version>
+                <mail.version>1.4.3</mail.version>
+                <log4j.version>1.2.17</log4j.version>
        </properties>
+
 
 	<repositories>
 		<repository>

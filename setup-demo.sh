@@ -57,8 +57,11 @@ then
 fi
 
 find /root/hdp22-twitter-demo -iname '*.sh' | xargs chmod +x
+echo "Installing mvn..."
+/root/hdp22-twitter-demo/setup-scripts/install_mvn.sh > /root/hdp22-twitter-demo/logs/install_mvn.log
+
 echo "Installing Solr..."
-/root/hdp22-twitter-demo/setup-scripts/install_solr_2.3.2.sh > /root/hdp22-twitter-demo/logs/install_solr.log
+/root/hdp22-twitter-demo/setup-scripts/install_solr.sh > /root/hdp22-twitter-demo/logs/install_solr.log
 
 echo "Creating Phoenix tables..."
 /root/hdp22-twitter-demo/fetchSecuritiesList/runcreatehbasetables.sh > /root/hdp22-twitter-demo/logs/runcreatehbasetables.log
@@ -84,7 +87,7 @@ sudo -u hdfs hadoop fs -mkdir /tweets/staging
 sudo -u hdfs hadoop fs -chmod 777 /tweets/staging
 
 echo "Creating Hive table..."
-sudo -u hive hive -f /root/hdp22-twitter-demo/stormtwitter-mvn/twitter.sql > /root/hdp22-twitter-demo/logs/create-hivetable.log
+hive -f /root/hdp22-twitter-demo/stormtwitter-mvn/twitter.sql > /root/hdp22-twitter-demo/logs/create-hivetable.log
 
 sudo -u hdfs hadoop fs -chmod 777 /tweets
 sudo -u hdfs hadoop fs -chmod 777 /tweets/staging

@@ -1,3 +1,6 @@
+#only needed on HDP 2.2 and earlier.
+#on hdp 2.3 onwards, banana comes as part of lucidworks-hdpsearch
+
 mkdir /opt/banana
 chown solr:solr /opt/banana
 cd /opt/banana

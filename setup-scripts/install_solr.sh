@@ -1,26 +1,17 @@
-adduser solr
-echo solr | passwd solr --stdin
-mkdir /opt/solr
+sudo yum install -y lucidworks-hdpsearch
+sed -i "s/<arr name=\"format\">/<arr name=\"format\">\n        <str>EEE MMM d HH:mm:ss Z yyyy<\/str>/" /opt/lucidworks-hdpsearch/solr/server/solr/configsets/data_driven_schema_configs/conf/solrconfig.xml
 
-su -l hdfs -c "hadoop fs -mkdir -p /user/solr"
-su -l hdfs -c "hadoop fs -chown solr /user/solr"
+sudo -u hdfs hadoop fs -mkdir /user/solr
+sudo -u hdfs hadoop fs -chown solr /user/solr
 
-cd /opt/solr
-#wget  http://www.interior-dsgn.com/apache/lucene/solr/4.10.2/solr-4.10.2.tgz
-wget https://archive.apache.org/dist/lucene/solr/4.10.2/solr-4.10.2.tgz
-tar xzf solr-4.10.2.tgz
-ln -s solr-4.10.2 latest
-rm -rf solr-*.tgz
-cp -r /opt/solr/latest/example /opt/solr/latest/hdp
-rm -rf /opt/solr/latest/hdp/example* /opt/solr/latest/hdp/multicore /opt/solr/latest/hdp/solr
+/bin/cp -f /root/hdp22-twitter-demo/default.json /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/banana/app/dashboards/
 
-cp -r /opt/solr/latest/example/example-schemaless/solr /opt/solr/latest/hdp/solr
-mv /opt/solr/latest/hdp/solr/collection1 /opt/solr/latest/hdp/solr/tweets
-cp -r /opt/solr/latest/example/solr/collection1/conf/admin-*.html /opt/solr/latest/hdp/solr/tweets/conf
-rm -rf /opt/solr/latest/hdp/solr/tweets/core.properties
+chown -R solr:solr /opt/lucidworks-hdpsearch/solr
+sudo -u solr /opt/lucidworks-hdpsearch/solr/bin/solr start -c -z localhost:2181
 
-chown -R solr:solr /opt/solr
+sleep 10
 
-mv /opt/solr/latest/hdp/solr/tweets/conf/solrconfig.xml /opt/solr/latest/hdp/solr/tweets/conf/solrconfig.xml.bak
-cp ~/hdp22-twitter-demo/solrconfig.xml /opt/solr/latest/hdp/solr/tweets/conf/
-
+sudo -u solr /opt/lucidworks-hdpsearch/solr/bin/solr create -c tweets \
+   -d data_driven_schema_configs \
+   -s 1 \
+   -rf 1

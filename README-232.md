@@ -33,11 +33,9 @@ Listen for Twitter streams related to S&P 500 companies
 
 - Demo setup:
 	- Either download and start prebuilt VM
-	- Start HDP 2.4 sandbox and run provided scripts to setup demo 
+	- Start HDP 2.3.2 sandbox and run provided scripts to setup demo 
 
 - Previous versions	
-	- For HDP 2.3.2 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-232.md)
-	- For HDP 2.3.0 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-230.md)
 	- For HDP 2.2 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
 	- For HDP 2.1 version of this demo see [here](https://github.com/abajwa-hw/hdp21-twitter-demo)
 
@@ -46,7 +44,7 @@ Listen for Twitter streams related to S&P 500 companies
 #### Contents
 
 1. [Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-23-sandbox)
-2. [Option 2: Setup demo via scripts on vanilla HDP 2.4 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
+2. [Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
 3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 4. [Setup Eclipse](https://github.com/hortonworks-gallery/hdp22-twitter-demo#optional-setup-vnceclipse-on-your-sandbox)
 5. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
@@ -92,13 +90,13 @@ cd /root/hdp22-twitter-demo
 -------------------------
 
 
-#### Option 2: Setup demo via scripts on vanilla HDP 2.4 sandbox
+#### Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
   - While waiting on any step, if you don't already have Twitter credentials, follow steps [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-twitter-credentials) to get them
 
-- Download HDP 2.4 sandbox VM image file (Hortonworks_sanbox_with_hdp_2_4_vmware.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
-- Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 10GB+ RAM) and start the VM
+- Download HDP 2.3.2 sandbox VM image file (Sandbox_HDP_2.3.2_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
 192.168.191.241 sandbox.hortonworks.com sandbox    
@@ -114,7 +112,7 @@ cd
 git clone https://github.com/hortonworks-gallery/hdp22-twitter-demo.git	
 ```
 
-- (Optional) To setup a development env on the sandbox to browse/modify the code, download Ambari service for VNC (details below). Not required if you just want to setup the demo
+- Download Ambari service for VNC (details below)
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
 sudo git clone https://github.com/hortonworks-gallery/ambari-vnc-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/VNCSERVER   
@@ -130,7 +128,7 @@ cd /root/hdp22-twitter-demo
 
 ------------------
 
-##### Optional - Setup VNC/Eclipse on your sandbox 
+##### Setup VNC/Eclipse on your sandbox
 
 - Once the status of HDFS/YARN has changed from a yellow question mark to a green check mark...
 
@@ -193,6 +191,66 @@ nohup /usr/hdp/current/kafka-broker/bin/kafka-server-start.sh /usr/hdp/current/k
 #delete topic (only works if delete.topic.enable and setup auto.create.topics.enable is set to true in Ambari > Kafka > Config)
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --zookeeper $(hostname -f):2181 --topic test
 ```
+
+------------------
+
+##### (Optional): Setup Ranger audits in Solr and Silk dashboard
+
+- Sandbox comes with Ranger installed. You can use the below steps to setup Hbase/Hive audits to Solr and setup Silk (banana) dashboard to visualize these
+
+- Setup Solr and Banana and 'Ranger Audits' dashboard using HDP search (Solr 5.2) - *note this will install a view and restart Ambari*
+```
+cd
+wget https://github.com/abajwa-hw/security-workshops/raw/master/scripts/setup_solr_banana.sh
+chmod +x setup_solr_banana.sh
+
+# assuming you already created a /etc/hosts entry for sandbox.hortonworks.com on your local laptop, just run below
+./setup_solr_banana.sh
+
+# otherwise, pass in appropriate argument as described below
+./setup_solr_banana.sh <arguments>
+
+#on sandbox
+service ambari start
+```
+    - argument options:
+      - if no arguments passed, FQDN will be used as hostname to setup dashboard/view (use this if you have created local hosts entry for host where Solr will run e.g. sandbox.hortonworks.com)
+      - if "publicip" is passed, the public ip address will be used as hostname to setup dashboard/view (use this on cloud environments)
+      - otherwise the passed in value will be assumed to be the hostname to setup dashboard/view
+
+
+  - Solr UI should be available at http://(your hostname):6083/solr/#/ranger_audits e.g. http://sandbox.hortonworks.com:6083/solr/#/ranger_audits 
+  - An Empty Banana dashboard should be available at http://(your hostname):6083/banana e.g. http://sandbox.hortonworks.com:6083/banana. 
+  - To manually start this Ranger Solr instance (e.g. after reboot) use below:
+  
+  ```
+  /opt/lucidworks-hdpsearch/solr/ranger_audit_server/scripts/start_solr.sh
+  ```  
+
+- Setup HBase Ranger plugin to audit to Solr
+
+```
+cd /usr/hdp/2.*/ranger-hbase-plugin/       
+vi /usr/hdp/2.*/ranger-hbase-plugin/install.properties
+XAAUDIT.SOLR.IS_ENABLED=true
+XAAUDIT.SOLR.SOLR_URL=http://sandbox.hortonworks.com:6083/solr/ranger_audits
+
+./enable-hbase-plugin.sh
+```
+
+- Setup Hive Ranger plugin to audit to Solr
+```
+cd /usr/hdp/2.*/ranger-hive-plugin/       
+vi /usr/hdp/2.*/ranger-hive-plugin/install.properties
+XAAUDIT.SOLR.IS_ENABLED=true
+XAAUDIT.SOLR.SOLR_URL=http://sandbox.hortonworks.com:6083/solr/ranger_audits
+
+./enable-hive-plugin.sh
+```
+
+- Now retart HBase and Hive to register the plugins.
+
+
 
 -------------------------------
 
@@ -347,6 +405,40 @@ vi /tmp/Tweets.xls
 
 - Open Hive view and query the tweets table:
 ![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-hive-query.png?raw=true)
+
+
+#### Access Ranger audits dashboard
+
+- Open the Ranger Audits dashboard at http://sandbox.hortonworks.com:6083/banana
+
+- By default you will see a visualization of both HBase/Hive reads/gets:
+![Image](../master/screenshots/twitter-ranger-audit-reads.png?raw=true)
+
+- Change the query filter to "action:write" to search for writes/puts:
+![Image](../master/screenshots/twitter-ranger-audit-writes.png?raw=true)
+
+- On the Ranger audits dashboard, query for Hive audits:
+![Image](https://github.com/abajwa-hw/iotdemo-service/blob/master/screenshots/iot-rangeraudit-hive.png?raw=true)
+
+- Now disable the global allow policy on Hbase and Hive and wait 30s:
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-disable-hbasepolicy.png?raw=true)
+![Image](https://github.com/abajwa-hw/iotdemo-service/blob/master/screenshots/iot-disable-hivepolicy.png?raw=true)
+
+- Try running the same query in Hive view. It should fail as unauthorized
+
+- At this point, you should should see some Hbase audit records with result=0
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-rangeraudit-hbase-rejection.png?raw=true)
+
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-rangeraudit-hive-rejection.png?raw=true)
+
+- Confirm the same by opening the Audit tab of Ranger: http://sandbox.hortonworks.com:6080
+
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-ranger-hbase-rejection.png?raw=true)
+
+![Image](https://github.com/abajwa-hw/iotdemo-service/raw/master/screenshots/iot-ranger-hive-rejection.png?raw=true)
+
+- Re-enable the global allow policies.
+
 
 
 
