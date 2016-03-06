@@ -212,6 +212,7 @@ public class TwitterRuleBolt implements IRichBolt {
 		
 		try{
 			server.add(doc);
+            server.commit(false,false);
 			System.out.println("SolrBolt: successfully added alert to Solr server" + hashtag);
 		} catch (Exception e) {
 			e.printStackTrace();

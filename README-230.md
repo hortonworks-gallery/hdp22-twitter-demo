@@ -33,7 +33,7 @@ Listen for Twitter streams related to S&P 500 companies
 
 - Demo setup:
 	- Either download and start prebuilt VM
-	- Start HDP 2.3.2 sandbox and run provided scripts to setup demo 
+	- Start HDP 2.3 sandbox and run provided scripts to setup demo 
 
 - Previous versions	
 	- For HDP 2.2 instructions see [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo/blob/master/README-22.md)
@@ -44,7 +44,7 @@ Listen for Twitter streams related to S&P 500 companies
 #### Contents
 
 1. [Option 1: Setup demo using prebuilt VM based on HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-1-setup-demo-using-prebuilt-vm-based-on-hdp-23-sandbox)
-2. [Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
+2. [Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox](https://github.com/hortonworks-gallery/hdp22-twitter-demo#option-2-setup-demo-via-scripts-on-vanilla-hdp-23-sandbox)
 3. [Kafka basics - optional](https://github.com/hortonworks-gallery/hdp22-twitter-demo#kafka-basics---optional)
 4. [Setup Eclipse](https://github.com/hortonworks-gallery/hdp22-twitter-demo#optional-setup-vnceclipse-on-your-sandbox)
 5. [Run demo](https://github.com/hortonworks-gallery/hdp22-twitter-demo#run-twitter-demo) to monitor Tweets about S&P 500 securities in realtime
@@ -73,7 +73,7 @@ ssh root@sandbox.hortonworks.com
 - Start the demo by
 ```
 cd /root/hdp22-twitter-demo
-./start-demo.sh
+./start-demo-230.sh
 #once storm topology is submitted, press control-C
 
 #start kafka twitter producer
@@ -90,12 +90,12 @@ cd /root/hdp22-twitter-demo
 -------------------------
 
 
-#### Option 2: Setup demo via scripts on vanilla HDP 2.3.2 sandbox
+#### Option 2: Setup demo via scripts on vanilla HDP 2.3 sandbox
 
 These setup steps are only needed first time and may take upto 30min to execute (depending on your internet connection)
   - While waiting on any step, if you don't already have Twitter credentials, follow steps [here](https://github.com/hortonworks-gallery/hdp22-twitter-demo#setup-twitter-credentials) to get them
 
-- Download HDP 2.3.2 sandbox VM image file (Sandbox_HDP_2.3.2_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
+- Download HDP 2.3 sandbox VM image file (Sandbox_HDP_2.3_VMWare.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/) 
 - Import the ova into VMWare Fusion and allocate at least 4cpus and 8GB RAM (its preferable to increase to 9.6GB+ RAM) and start the VM
 - Find the IP address of the VM and add an entry into your machines hosts file e.g.
 ```
@@ -122,7 +122,7 @@ service ambari restart
 - **Setup demo**:Run below to setup demo (one time): it will start Ambari/HBase/Kafka/Storm and install maven, solr, banana. 
 ```
 cd /root/hdp22-twitter-demo
-./setup-demo.sh
+./setup-demo-230.sh
 ```
   - while it runs, proceed with installing VNC service per steps below
 
@@ -291,7 +291,7 @@ hive -e 'desc tweets_text_partition'
 - **Start Storm Twitter topology** to generate alerts into an HBase table for stocks whose tweet volume is higher than threshold this will also read tweets into Hive/HDFS/local disk/Solr/Banana. The first time you run below, maven will take 15min to download dependent jars
 ```
 cd /root/hdp22-twitter-demo
-./start-demo.sh
+./start-demo-230.sh
 #once storm topology is submitted, press control-C
 ```
   - (Optional) Other modes the topology could be started in future runs if you want to clean the setup or run locally (not on the storm running on the sandbox)
@@ -373,10 +373,10 @@ http://sandbox.hortonworks.com:8080/#/main/views/HIVE/1.0.0/Hive
 
 ![Image](../master/screenshots/Hive-view.png?raw=true)
 
-- Open Banana UI and view/search tweet summary and alerts: http://sandbox.hortonworks.com:8983/solr/banana/index.html
+- Open Banana UI and view/search tweet summary and alerts: http://sandbox.hortonworks.com:8983/banana
 ![Image](../master/screenshots/Banana-view-updated.png?raw=true)
 
-  - You can also access the UI via Ambari view by following steps [here](https://github.com/hortonworks-gallery/ambari-iframe-view) and replacing the url with http://sandbox.hortonworks.com:8983/solr/banana/index.html
+  - You can also access the UI via Ambari view by following steps [here](https://github.com/hortonworks-gallery/ambari-iframe-view) and replacing the url with http://sandbox.hortonworks.com:8983/banana
   - For more details on the Banana dashboard panels are built, refer to the underlying [json](https://github.com/abajwa-hw/hdp22-twitter-demo/blob/master/default.json) file that defines all the panels 
   - In case you don't see any tweets, try changing to a different timeframe on timeline (e.g. by clicking 24 hours, 7 days etc). If there is a time mismatch between the VM and your machine, the tweets may appear at a different place on the timeline than expected.
  
